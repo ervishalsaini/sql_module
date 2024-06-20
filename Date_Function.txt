@@ -1,0 +1,69 @@
+DATE FUNCTION 
++--------+------------+------------------+
+| Emp_id | Hire_Date  | Resignation_Date |
++--------+------------+------------------+
+|      1 | 2000-01-01 | 2013-10-07       |
+|      2 | 2003-12-04 | 2017-08-03       |
+|      3 | 2012-09-22 | 2015-06-21       |
+|      4 | 2015-04-13 | NULL             |
+|      5 | 2016-06-03 | NULL             |
+|      6 | 2017-08-08 | NULL             |
+|      7 | 2016-11-13 | NULL             |
++--------+------------+------------------+
+
+1. Find the date difference between the hire date and resignation_date for all the employees. Display in no. of days, months and year(1 year 3 months 5 days).
+mysql> select Emp_id ,abs(date_format(resignation_date,"%Y") - date_format(hire_date,"%Y")) as Years
+    -> ,abs(date_format(resignation_date,"%m") - date_format(hire_date,"%m")) as Months
+    -> ,abs(date_format(resignation_date,"%d") - date_format(hire_date,"%d")) as Days from dates;
++--------+-------+--------+------+
+| Emp_id | Years | Months | Days |
++--------+-------+--------+------+
+|      1 |    13 |      9 |    6 |
+|      2 |    14 |      4 |    1 |
+|      3 |     3 |      3 |    1 |
+|      4 |  NULL |   NULL | NULL |
+|      5 |  NULL |   NULL | NULL |
+|      6 |  NULL |   NULL | NULL |
+|      7 |  NULL |   NULL | NULL |
++--------+-------+--------+------+
+
+
+2. Format the hire date as mm/dd/yyyy(09/22/2003) and resignation_date as mon dd, yyyy(Aug 12th, 2004). Display the null as (DEC, 01th 1900)
+mysql> select emp_id , date_format(hire_date,"%m/%d/%Y") "Hire Date" , case when (date_format(resignation_date,"%b %D %Y") is null) then "Dec 01th 1900" else date_format(resignation_date,"%b %D %Y") end as "Resignation Date" from dates;
++--------+------------+------------------+
+| emp_id | Hire Date  | Resignation Date |
++--------+------------+------------------+
+|      1 | 01/01/2000 | Oct 7th 2013     |
+|      2 | 12/04/2003 | Aug 3rd 2017     |
+|      3 | 09/22/2012 | Jun 21st 2015    |
+|      4 | 04/13/2015 | Dec 01th 1900    |
+|      5 | 06/03/2016 | Dec 01th 1900    |
+|      6 | 08/08/2017 | Dec 01th 1900    |
+|      7 | 11/13/2016 | Dec 01th 1900    |
++--------+------------+------------------+
+
+
+3.  Calcuate experience of the employee till date in Years and months(example 1 year and 3 months)
+mysql> select emp_id ,concat_ws(" ",abs(date_format(hire_date,"%Y")-date_format(curdate(),"%Y")) ,"Years" ,abs(date_format(hire_date,"%m")-date_format(curdate(),"%m")),"Months") as Total_Experience from dates;
++--------+-------------------+
+| emp_id | Total_Experience  |
++--------+-------------------+
+|      1 | 24 Years 5 Months |
+|      2 | 21 Years 6 Months |
+|      3 | 12 Years 3 Months |
+|      4 | 9 Years 2 Months  |
+|      5 | 8 Years 0 Months  |
+|      6 | 7 Years 2 Months  |
+|      7 | 8 Years 5 Months  |
++--------+-------------------+
+
+
+4. Display the count of days in the previous quarter.
+mysql> select datediff( adddate( last_day("2024-03-01"), interval 1 day ) ,  makedate(year(now()),1)) as "No of Days in Previous Quarter";
++--------------------------------+
+| No of Days in Previous Quarter |
++--------------------------------+
+|                             91 |
++--------------------------------+
+
+

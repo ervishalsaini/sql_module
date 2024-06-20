@@ -1,0 +1,3886 @@
+DATABASE: HR
+
+1. Display all information in the tables EMP and DEPT. 
+mysql> select * from employees;
++-------------+-------------+-------------+----------+--------------------+------------+------------+----------+----------------+------------+---------------+
+| employee_id | first_name  | last_name   | email    | phone_number       | hire_date  | job_id     | salary   | commission_pct | manager_id | department_id |
++-------------+-------------+-------------+----------+--------------------+------------+------------+----------+----------------+------------+---------------+
+|         100 | Steven      | King        | SKING    | 515.123.4567       | 1987-06-17 | AD_PRES    | 24000.00 |           NULL |       NULL |            90 |
+|         101 | Neena       | Kochhar     | NKOCHHAR | 515.123.4568       | 1989-09-21 | AD_VP      | 17000.00 |           NULL |        100 |            90 |
+|         102 | Lex         | De Haan     | LDEHAAN  | 515.123.4569       | 1993-01-13 | AD_VP      | 17000.00 |           NULL |        100 |            90 |
+|         103 | Alexander   | Hunold      | AHUNOLD  | 590.423.4567       | 1990-01-03 | IT_PROG    |  9000.00 |           NULL |        102 |            60 |
+|         104 | Bruce       | Ernst       | BERNST   | 590.423.4568       | 1991-05-21 | IT_PROG    |  6000.00 |           NULL |        103 |            60 |
+|         105 | David       | Austin      | DAUSTIN  | 590.423.4569       | 1997-06-25 | IT_PROG    |  4800.00 |           NULL |        103 |            60 |
+|         106 | Valli       | Pataballa   | VPATABAL | 590.423.4560       | 1998-02-05 | IT_PROG    |  4800.00 |           NULL |        103 |            60 |
+|         107 | Diana       | Lorentz     | DLORENTZ | 590.423.5567       | 1999-02-07 | IT_PROG    |  4200.00 |           NULL |        103 |            60 |
+|         108 | Nancy       | Greenberg   | NGREENBE | 515.124.4569       | 1994-08-17 | FI_MGR     | 12000.00 |           NULL |        101 |           100 |
+|         109 | Daniel      | Faviet      | DFAVIET  | 515.124.4169       | 1994-08-16 | FI_ACCOUNT |  9000.00 |           NULL |        108 |           100 |
+|         110 | John        | Chen        | JCHEN    | 515.124.4269       | 1997-09-28 | FI_ACCOUNT |  8200.00 |           NULL |        108 |           100 |
+|         111 | Ismael      | Sciarra     | ISCIARRA | 515.124.4369       | 1997-09-30 | FI_ACCOUNT |  7700.00 |           NULL |        108 |           100 |
+|         112 | Jose Manuel | Urman       | JMURMAN  | 515.124.4469       | 1998-03-07 | FI_ACCOUNT |  7800.00 |           NULL |        108 |           100 |
+|         113 | Luis        | Popp        | LPOPP    | 515.124.4567       | 1999-12-07 | FI_ACCOUNT |  6900.00 |           NULL |        108 |           100 |
+|         114 | Den         | Raphaely    | DRAPHEAL | 515.127.4561       | 1994-12-07 | PU_MAN     | 11000.00 |           NULL |        100 |            30 |
+|         115 | Alexander   | Khoo        | AKHOO    | 515.127.4562       | 1995-05-18 | PU_CLERK   |  3100.00 |           NULL |        114 |            30 |
+|         116 | Shelli      | Baida       | SBAIDA   | 515.127.4563       | 1997-12-24 | PU_CLERK   |  2900.00 |           NULL |        114 |            30 |
+|         117 | Sigal       | Tobias      | STOBIAS  | 515.127.4564       | 1997-07-24 | PU_CLERK   |  2800.00 |           NULL |        114 |            30 |
+|         118 | Guy         | Himuro      | GHIMURO  | 515.127.4565       | 1998-11-15 | PU_CLERK   |  2600.00 |           NULL |        114 |            30 |
+|         119 | Karen       | Colmenares  | KCOLMENA | 515.127.4566       | 1999-08-10 | PU_CLERK   |  2500.00 |           NULL |        114 |            30 |
+|         120 | Matthew     | Weiss       | MWEISS   | 650.123.1234       | 1996-07-18 | ST_MAN     |  8000.00 |           NULL |        100 |            50 |
+|         121 | Adam        | Fripp       | AFRIPP   | 650.123.2234       | 1997-04-10 | ST_MAN     |  8200.00 |           NULL |        100 |            50 |
+|         122 | Payam       | Kaufling    | PKAUFLIN | 650.123.3234       | 1995-05-01 | ST_MAN     |  7900.00 |           NULL |        100 |            50 |
+|         123 | Shanta      | Vollman     | SVOLLMAN | 650.123.4234       | 1997-10-10 | ST_MAN     |  6500.00 |           NULL |        100 |            50 |
+|         124 | Kevin       | Mourgos     | KMOURGOS | 650.123.5234       | 1999-11-16 | ST_MAN     |  5800.00 |           NULL |        100 |            50 |
+|         125 | Julia       | Nayer       | JNAYER   | 650.124.1214       | 1997-07-16 | ST_CLERK   |  3200.00 |           NULL |        120 |            50 |
+|         126 | Irene       | Mikkilineni | IMIKKILI | 650.124.1224       | 1998-09-28 | ST_CLERK   |  2700.00 |           NULL |        120 |            50 |
+|         127 | James       | Landry      | JLANDRY  | 650.124.1334       | 1999-01-14 | ST_CLERK   |  2400.00 |           NULL |        120 |            50 |
+|         128 | Steven      | Markle      | SMARKLE  | 650.124.1434       | 2000-03-08 | ST_CLERK   |  2200.00 |           NULL |        120 |            50 |
+|         129 | Laura       | Bissot      | LBISSOT  | 650.124.5234       | 1997-08-20 | ST_CLERK   |  3300.00 |           NULL |        121 |            50 |
+|         130 | Mozhe       | Atkinson    | MATKINSO | 650.124.6234       | 1997-10-30 | ST_CLERK   |  2800.00 |           NULL |        121 |            50 |
+|         131 | James       | Marlow      | JAMRLOW  | 650.124.7234       | 1997-02-16 | ST_CLERK   |  2500.00 |           NULL |        121 |            50 |
+|         132 | TJ          | Olson       | TJOLSON  | 650.124.8234       | 1999-04-10 | ST_CLERK   |  2100.00 |           NULL |        121 |            50 |
+|         133 | Jason       | Mallin      | JMALLIN  | 650.127.1934       | 1996-06-14 | ST_CLERK   |  3300.00 |           NULL |        122 |            50 |
+|         134 | Michael     | Rogers      | MROGERS  | 650.127.1834       | 1998-08-26 | ST_CLERK   |  2900.00 |           NULL |        122 |            50 |
+|         135 | Ki          | Gee         | KGEE     | 650.127.1734       | 1999-12-12 | ST_CLERK   |  2400.00 |           NULL |        122 |            50 |
+|         136 | Hazel       | Philtanker  | HPHILTAN | 650.127.1634       | 2000-02-06 | ST_CLERK   |  2200.00 |           NULL |        122 |            50 |
+|         137 | Renske      | Ladwig      | RLADWIG  | 650.121.1234       | 1995-07-14 | ST_CLERK   |  3600.00 |           NULL |        123 |            50 |
+|         138 | Stephen     | Stiles      | SSTILES  | 650.121.2034       | 1997-10-26 | ST_CLERK   |  3200.00 |           NULL |        123 |            50 |
+|         139 | John        | Seo         | JSEO     | 650.121.2019       | 1998-02-12 | ST_CLERK   |  2700.00 |           NULL |        123 |            50 |
+|         140 | Joshua      | Patel       | JPATEL   | 650.121.1834       | 1998-04-06 | ST_CLERK   |  2500.00 |           NULL |        123 |            50 |
+|         141 | Trenna      | Rajs        | TRAJS    | 650.121.8009       | 1995-10-17 | ST_CLERK   |  3500.00 |           NULL |        124 |            50 |
+|         142 | Curtis      | Davies      | CDAVIES  | 650.121.2994       | 1997-01-29 | ST_CLERK   |  3100.00 |           NULL |        124 |            50 |
+|         143 | Randall     | Matos       | RMATOS   | 650.121.2874       | 1998-03-15 | ST_CLERK   |  2600.00 |           NULL |        124 |            50 |
+|         144 | Peter       | Vargas      | PVARGAS  | 650.121.2004       | 1998-07-09 | ST_CLERK   |  2500.00 |           NULL |        124 |            50 |
+|         145 | John        | Russell     | JRUSSEL  | 011.44.1344.429268 | 1996-10-01 | SA_MAN     | 14000.00 |           0.40 |        100 |            80 |
+|         146 | Karen       | Partners    | KPARTNER | 011.44.1344.467268 | 1997-01-05 | SA_MAN     | 13500.00 |           0.30 |        100 |            80 |
+|         147 | Alberto     | Errazuriz   | AERRAZUR | 011.44.1344.429278 | 1997-03-10 | SA_MAN     | 12000.00 |           0.30 |        100 |            80 |
+|         148 | Gerald      | Cambrault   | GCAMBRAU | 011.44.1344.619268 | 1999-10-15 | SA_MAN     | 11000.00 |           0.30 |        100 |            80 |
+|         149 | Eleni       | Zlotkey     | EZLOTKEY | 011.44.1344.429018 | 2000-01-29 | SA_MAN     | 10500.00 |           0.20 |        100 |            80 |
+|         150 | Peter       | Tucker      | PTUCKER  | 011.44.1344.129268 | 1997-01-30 | SA_REP     | 10000.00 |           0.30 |        145 |            80 |
+|         151 | David       | Bernstein   | DBERNSTE | 011.44.1344.345268 | 1997-03-24 | SA_REP     |  9500.00 |           0.25 |        145 |            80 |
+|         152 | Peter       | Hall        | PHALL    | 011.44.1344.478968 | 1997-08-20 | SA_REP     |  9000.00 |           0.25 |        145 |            80 |
+|         153 | Christopher | Olsen       | COLSEN   | 011.44.1344.498718 | 1998-03-30 | SA_REP     |  8000.00 |           0.20 |        145 |            80 |
+|         154 | Nanette     | Cambrault   | NCAMBRAU | 011.44.1344.987668 | 1998-12-09 | SA_REP     |  7500.00 |           0.20 |        145 |            80 |
+|         155 | Oliver      | Tuvault     | OTUVAULT | 011.44.1344.486508 | 1999-11-23 | SA_REP     |  7000.00 |           0.15 |        145 |            80 |
+|         156 | Janette     | King        | JKING    | 011.44.1345.429268 | 1996-01-30 | SA_REP     | 10000.00 |           0.35 |        146 |            80 |
+|         157 | Patrick     | Sully       | PSULLY   | 011.44.1345.929268 | 1996-03-04 | SA_REP     |  9500.00 |           0.35 |        146 |            80 |
+|         158 | Allan       | McEwen      | AMCEWEN  | 011.44.1345.829268 | 1996-08-01 | SA_REP     |  9000.00 |           0.35 |        146 |            80 |
+|         159 | Lindsey     | Smith       | LSMITH   | 011.44.1345.729268 | 1997-03-10 | SA_REP     |  8000.00 |           0.30 |        146 |            80 |
+|         160 | Louise      | Doran       | LDORAN   | 011.44.1345.629268 | 1997-12-15 | SA_REP     |  7500.00 |           0.30 |        146 |            80 |
+|         161 | Sarath      | Sewall      | SSEWALL  | 011.44.1345.529268 | 1998-11-03 | SA_REP     |  7000.00 |           0.25 |        146 |            80 |
+|         162 | Clara       | Vishney     | CVISHNEY | 011.44.1346.129268 | 1997-11-11 | SA_REP     | 10500.00 |           0.25 |        147 |            80 |
+|         163 | Danielle    | Greene      | DGREENE  | 011.44.1346.229268 | 1999-03-19 | SA_REP     |  9500.00 |           0.15 |        147 |            80 |
+|         164 | Mattea      | Marvins     | MMARVINS | 011.44.1346.329268 | 2000-01-24 | SA_REP     |  7200.00 |           0.10 |        147 |            80 |
+|         165 | David       | Lee         | DLEE     | 011.44.1346.529268 | 2000-02-23 | SA_REP     |  6800.00 |           0.10 |        147 |            80 |
+|         166 | Sundar      | Ande        | SANDE    | 011.44.1346.629268 | 2000-03-24 | SA_REP     |  6400.00 |           0.10 |        147 |            80 |
+|         167 | Amit        | Banda       | ABANDA   | 011.44.1346.729268 | 2000-04-21 | SA_REP     |  6200.00 |           0.10 |        147 |            80 |
+|         168 | Lisa        | Ozer        | LOZER    | 011.44.1343.929268 | 1997-03-11 | SA_REP     | 11500.00 |           0.25 |        148 |            80 |
+|         169 | Harrison    | Bloom       | HBLOOM   | 011.44.1343.829268 | 1998-03-23 | SA_REP     | 10000.00 |           0.20 |        148 |            80 |
+|         170 | Tayler      | Fox         | TFOX     | 011.44.1343.729268 | 1998-01-24 | SA_REP     |  9600.00 |           0.20 |        148 |            80 |
+|         171 | William     | Smith       | WSMITH   | 011.44.1343.629268 | 1999-02-23 | SA_REP     |  7400.00 |           0.15 |        148 |            80 |
+|         172 | Elizabeth   | Bates       | EBATES   | 011.44.1343.529268 | 1999-03-24 | SA_REP     |  7300.00 |           0.15 |        148 |            80 |
+|         173 | Sundita     | Kumar       | SKUMAR   | 011.44.1343.329268 | 2000-04-21 | SA_REP     |  6100.00 |           0.10 |        148 |            80 |
+|         174 | Ellen       | Abel        | EABEL    | 011.44.1644.429267 | 1996-05-11 | SA_REP     | 11000.00 |           0.30 |        149 |            80 |
+|         175 | Alyssa      | Hutton      | AHUTTON  | 011.44.1644.429266 | 1997-03-19 | SA_REP     |  8800.00 |           0.25 |        149 |            80 |
+|         176 | Jonathon    | Taylor      | JTAYLOR  | 011.44.1644.429265 | 1998-03-24 | SA_REP     |  8600.00 |           0.20 |        149 |            80 |
+|         177 | Jack        | Livingston  | JLIVINGS | 011.44.1644.429264 | 1998-04-23 | SA_REP     |  8400.00 |           0.20 |        149 |            80 |
+|         178 | Kimberely   | Grant       | KGRANT   | 011.44.1644.429263 | 1999-05-24 | SA_REP     |  7000.00 |           0.15 |        149 |          NULL |
+|         179 | Charles     | Johnson     | CJOHNSON | 011.44.1644.429262 | 2000-01-04 | SA_REP     |  6200.00 |           0.10 |        149 |            80 |
+|         180 | Winston     | Taylor      | WTAYLOR  | 650.507.9876       | 1998-01-24 | SH_CLERK   |  3200.00 |           NULL |        120 |            50 |
+|         181 | Jean        | Fleaur      | JFLEAUR  | 650.507.9877       | 1998-02-23 | SH_CLERK   |  3100.00 |           NULL |        120 |            50 |
+|         182 | Martha      | Sullivan    | MSULLIVA | 650.507.9878       | 1999-06-21 | SH_CLERK   |  2500.00 |           NULL |        120 |            50 |
+|         183 | Girard      | Geoni       | GGEONI   | 650.507.9879       | 2000-02-03 | SH_CLERK   |  2800.00 |           NULL |        120 |            50 |
+|         184 | Nandita     | Sarchand    | NSARCHAN | 650.509.1876       | 1996-01-27 | SH_CLERK   |  4200.00 |           NULL |        121 |            50 |
+|         185 | Alexis      | Bull        | ABULL    | 650.509.2876       | 1997-02-20 | SH_CLERK   |  4100.00 |           NULL |        121 |            50 |
+|         186 | Julia       | Dellinger   | JDELLING | 650.509.3876       | 1998-06-24 | SH_CLERK   |  3400.00 |           NULL |        121 |            50 |
+|         187 | Anthony     | Cabrio      | ACABRIO  | 650.509.4876       | 1999-02-07 | SH_CLERK   |  3000.00 |           NULL |        121 |            50 |
+|         188 | Kelly       | Chung       | KCHUNG   | 650.505.1876       | 1997-06-14 | SH_CLERK   |  3800.00 |           NULL |        122 |            50 |
+|         189 | Jennifer    | Dilly       | JDILLY   | 650.505.2876       | 1997-08-13 | SH_CLERK   |  3600.00 |           NULL |        122 |            50 |
+|         190 | Timothy     | Gates       | TGATES   | 650.505.3876       | 1998-07-11 | SH_CLERK   |  2900.00 |           NULL |        122 |            50 |
+|         191 | Randall     | Perkins     | RPERKINS | 650.505.4876       | 1999-12-19 | SH_CLERK   |  2500.00 |           NULL |        122 |            50 |
+|         192 | Sarah       | Bell        | SBELL    | 650.501.1876       | 1996-02-04 | SH_CLERK   |  4000.00 |           NULL |        123 |            50 |
+|         193 | Britney     | Everett     | BEVERETT | 650.501.2876       | 1997-03-03 | SH_CLERK   |  3900.00 |           NULL |        123 |            50 |
+|         194 | Samuel      | McCain      | SMCCAIN  | 650.501.3876       | 1998-07-01 | SH_CLERK   |  3200.00 |           NULL |        123 |            50 |
+|         195 | Vance       | Jones       | VJONES   | 650.501.4876       | 1999-03-17 | SH_CLERK   |  2800.00 |           NULL |        123 |            50 |
+|         196 | Alana       | Walsh       | AWALSH   | 650.507.9811       | 1998-04-24 | SH_CLERK   |  3100.00 |           NULL |        124 |            50 |
+|         197 | Kevin       | Feeney      | KFEENEY  | 650.507.9822       | 1998-05-23 | SH_CLERK   |  3000.00 |           NULL |        124 |            50 |
+|         198 | Donald      | OConnell    | DOCONNEL | 650.507.9833       | 1999-06-21 | SH_CLERK   |  2600.00 |           NULL |        124 |            50 |
+|         199 | Douglas     | Grant       | DGRANT   | 650.507.9844       | 2000-01-13 | SH_CLERK   |  2600.00 |           NULL |        124 |            50 |
+|         200 | Jennifer    | Whalen      | JWHALEN  | 515.123.4444       | 1987-09-17 | AD_ASST    |  4400.00 |           NULL |        101 |            10 |
+|         201 | Michael     | Hartstein   | MHARTSTE | 515.123.5555       | 1996-02-17 | MK_MAN     | 13000.00 |           NULL |        100 |            20 |
+|         202 | Pat         | Fay         | PFAY     | 603.123.6666       | 1997-08-17 | MK_REP     |  6000.00 |           NULL |        201 |            20 |
+|         203 | Susan       | Mavris      | SMAVRIS  | 515.123.7777       | 1994-06-07 | HR_REP     |  6500.00 |           NULL |        101 |            40 |
+|         204 | Hermann     | Baer        | HBAER    | 515.123.8888       | 1994-06-07 | PR_REP     | 10000.00 |           NULL |        101 |            70 |
+|         205 | Shelley     | Higgins     | SHIGGINS | 515.123.8080       | 1994-06-07 | AC_MGR     | 12000.00 |           NULL |        101 |           110 |
+|         206 | William     | Gietz       | WGIETZ   | 51hr5.123.8181     | 1994-06-07 | AC_ACCOUNT |  8300.00 |           NULL |        205 |           110 |
++-------------+-------------+-------------+----------+--------------------+------------+------------+----------+----------------+------------+---------------+
+
+mysql> select * from departments;
++---------------+----------------------+------------+-------------+
+| department_id | department_name      | manager_id | location_id |
++---------------+----------------------+------------+-------------+
+|            10 | Administration       |        200 |        1700 |
+|            20 | Marketing            |        201 |        1800 |
+|            30 | Purchasing           |        114 |        1700 |
+|            40 | Human Resources      |        203 |        2400 |
+|            50 | Shipping             |        121 |        1500 |
+|            60 | IT                   |        103 |        1400 |
+|            70 | Public Relations     |        204 |        2700 |
+|            80 | Sales                |        145 |        2500 |
+|            90 | Executive            |        100 |        1700 |
+|           100 | Finance              |        108 |        1700 |
+|           110 | Accounting           |        205 |        1700 |
+|           120 | Treasury             |       NULL |        1700 |
+|           130 | Corporate Tax        |       NULL |        1700 |
+|           140 | Control And Credit   |       NULL |        1700 |
+|           150 | Shareholder Services |       NULL |        1700 |
+|           160 | Benefits             |       NULL |        1700 |
+|           170 | Manufacturing        |       NULL |        1700 |
+|           180 | Construction         |       NULL |        1700 |
+|           190 | Contracting          |       NULL |        1700 |
+|           200 | Operations           |       NULL |        1700 |
+|           210 | IT Support           |       NULL |        1700 |
+|           220 | NOC                  |       NULL |        1700 |
+|           230 | IT Helpdesk          |       NULL |        1700 |
+|           240 | Government Sales     |       NULL |        1700 |
+|           250 | Retail Sales         |       NULL |        1700 |
+|           260 | Recruiting           |       NULL |        1700 |
+|           270 | Payroll              |       NULL |        1700 |
++---------------+----------------------+------------+-------------+
+
+
+2. Display only the hire date and employee name for each employee. 
+mysql> select concat(first_name," ",last_name) as "Employee Name", hire_date from employees;
++-------------------+------------+
+| Employee Name     | hire_date  |
++-------------------+------------+
+| Steven King       | 1987-06-17 |
+| Neena Kochhar     | 1989-09-21 |
+| Lex De Haan       | 1993-01-13 |
+| Alexander Hunold  | 1990-01-03 |
+| Bruce Ernst       | 1991-05-21 |
+| David Austin      | 1997-06-25 |
+| Valli Pataballa   | 1998-02-05 |
+| Diana Lorentz     | 1999-02-07 |
+| Nancy Greenberg   | 1994-08-17 |
+| Daniel Faviet     | 1994-08-16 |
+| John Chen         | 1997-09-28 |
+| Ismael Sciarra    | 1997-09-30 |
+| Jose Manuel Urman | 1998-03-07 |
+| Luis Popp         | 1999-12-07 |
+| Den Raphaely      | 1994-12-07 |
+| Alexander Khoo    | 1995-05-18 |
+| Shelli Baida      | 1997-12-24 |
+| Sigal Tobias      | 1997-07-24 |
+| Guy Himuro        | 1998-11-15 |
+| Karen Colmenares  | 1999-08-10 |
+| Matthew Weiss     | 1996-07-18 |
+| Adam Fripp        | 1997-04-10 |
+| Payam Kaufling    | 1995-05-01 |
+| Shanta Vollman    | 1997-10-10 |
+| Kevin Mourgos     | 1999-11-16 |
+| Julia Nayer       | 1997-07-16 |
+| Irene Mikkilineni | 1998-09-28 |
+| James Landry      | 1999-01-14 |
+| Steven Markle     | 2000-03-08 |
+| Laura Bissot      | 1997-08-20 |
+| Mozhe Atkinson    | 1997-10-30 |
+| James Marlow      | 1997-02-16 |
+| TJ Olson          | 1999-04-10 |
+| Jason Mallin      | 1996-06-14 |
+| Michael Rogers    | 1998-08-26 |
+| Ki Gee            | 1999-12-12 |
+| Hazel Philtanker  | 2000-02-06 |
+| Renske Ladwig     | 1995-07-14 |
+| Stephen Stiles    | 1997-10-26 |
+| John Seo          | 1998-02-12 |
+| Joshua Patel      | 1998-04-06 |
+| Trenna Rajs       | 1995-10-17 |
+| Curtis Davies     | 1997-01-29 |
+| Randall Matos     | 1998-03-15 |
+| Peter Vargas      | 1998-07-09 |
+| John Russell      | 1996-10-01 |
+| Karen Partners    | 1997-01-05 |
+| Alberto Errazuriz | 1997-03-10 |
+| Gerald Cambrault  | 1999-10-15 |
+| Eleni Zlotkey     | 2000-01-29 |
+| Peter Tucker      | 1997-01-30 |
+| David Bernstein   | 1997-03-24 |
+| Peter Hall        | 1997-08-20 |
+| Christopher Olsen | 1998-03-30 |
+| Nanette Cambrault | 1998-12-09 |
+| Oliver Tuvault    | 1999-11-23 |
+| Janette King      | 1996-01-30 |
+| Patrick Sully     | 1996-03-04 |
+| Allan McEwen      | 1996-08-01 |
+| Lindsey Smith     | 1997-03-10 |
+| Louise Doran      | 1997-12-15 |
+| Sarath Sewall     | 1998-11-03 |
+| Clara Vishney     | 1997-11-11 |
+| Danielle Greene   | 1999-03-19 |
+| Mattea Marvins    | 2000-01-24 |
+| David Lee         | 2000-02-23 |
+| Sundar Ande       | 2000-03-24 |
+| Amit Banda        | 2000-04-21 |
+| Lisa Ozer         | 1997-03-11 |
+| Harrison Bloom    | 1998-03-23 |
+| Tayler Fox        | 1998-01-24 |
+| William Smith     | 1999-02-23 |
+| Elizabeth Bates   | 1999-03-24 |
+| Sundita Kumar     | 2000-04-21 |
+| Ellen Abel        | 1996-05-11 |
+| Alyssa Hutton     | 1997-03-19 |
+| Jonathon Taylor   | 1998-03-24 |
+| Jack Livingston   | 1998-04-23 |
+| Kimberely Grant   | 1999-05-24 |
+| Charles Johnson   | 2000-01-04 |
+| Winston Taylor    | 1998-01-24 |
+| Jean Fleaur       | 1998-02-23 |
+| Martha Sullivan   | 1999-06-21 |
+| Girard Geoni      | 2000-02-03 |
+| Nandita Sarchand  | 1996-01-27 |
+| Alexis Bull       | 1997-02-20 |
+| Julia Dellinger   | 1998-06-24 |
+| Anthony Cabrio    | 1999-02-07 |
+| Kelly Chung       | 1997-06-14 |
+| Jennifer Dilly    | 1997-08-13 |
+| Timothy Gates     | 1998-07-11 |
+| Randall Perkins   | 1999-12-19 |
+| Sarah Bell        | 1996-02-04 |
+| Britney Everett   | 1997-03-03 |
+| Samuel McCain     | 1998-07-01 |
+| Vance Jones       | 1999-03-17 |
+| Alana Walsh       | 1998-04-24 |
+| Kevin Feeney      | 1998-05-23 |
+| Donald OConnell   | 1999-06-21 |
+| Douglas Grant     | 2000-01-13 |
+| Jennifer Whalen   | 1987-09-17 |
+| Michael Hartstein | 1996-02-17 |
+| Pat Fay           | 1997-08-17 |
+| Susan Mavris      | 1994-06-07 |
+| Hermann Baer      | 1994-06-07 |
+| Shelley Higgins   | 1994-06-07 |
+| William Gietz     | 1994-06-07 |
++-------------------+------------+
+
+
+3. Display the ename concatenated with the job ID, separated by a comma and space, and name the column Employee and Title.
+mysql> select concat(first_name," ",last_name," ", ", ",job_id) as "Employee       Title"  from employees;
++--------------------------------+
+| Employee       Title           |
++--------------------------------+
+| Steven King , AD_PRES          |
+| Neena Kochhar , AD_VP          |
+| Lex De Haan , AD_VP            |
+| Alexander Hunold , IT_PROG     |
+| Bruce Ernst , IT_PROG          |
+| David Austin , IT_PROG         |
+| Valli Pataballa , IT_PROG      |
+| Diana Lorentz , IT_PROG        |
+| Nancy Greenberg , FI_MGR       |
+| Daniel Faviet , FI_ACCOUNT     |
+| John Chen , FI_ACCOUNT         |
+| Ismael Sciarra , FI_ACCOUNT    |
+| Jose Manuel Urman , FI_ACCOUNT |
+| Luis Popp , FI_ACCOUNT         |
+| Den Raphaely , PU_MAN          |
+| Alexander Khoo , PU_CLERK      |
+| Shelli Baida , PU_CLERK        |
+| Sigal Tobias , PU_CLERK        |
+| Guy Himuro , PU_CLERK          |
+| Karen Colmenares , PU_CLERK    |
+| Matthew Weiss , ST_MAN         |
+| Adam Fripp , ST_MAN            |
+| Payam Kaufling , ST_MAN        |
+| Shanta Vollman , ST_MAN        |
+| Kevin Mourgos , ST_MAN         |
+| Julia Nayer , ST_CLERK         |
+| Irene Mikkilineni , ST_CLERK   |
+| James Landry , ST_CLERK        |
+| Steven Markle , ST_CLERK       |
+| Laura Bissot , ST_CLERK        |
+| Mozhe Atkinson , ST_CLERK      |
+| James Marlow , ST_CLERK        |
+| TJ Olson , ST_CLERK            |
+| Jason Mallin , ST_CLERK        |
+| Michael Rogers , ST_CLERK      |
+| Ki Gee , ST_CLERK              |
+| Hazel Philtanker , ST_CLERK    |
+| Renske Ladwig , ST_CLERK       |
+| Stephen Stiles , ST_CLERK      |
+| John Seo , ST_CLERK            |
+| Joshua Patel , ST_CLERK        |
+| Trenna Rajs , ST_CLERK         |
+| Curtis Davies , ST_CLERK       |
+| Randall Matos , ST_CLERK       |
+| Peter Vargas , ST_CLERK        |
+| John Russell , SA_MAN          |
+| Karen Partners , SA_MAN        |
+| Alberto Errazuriz , SA_MAN     |
+| Gerald Cambrault , SA_MAN      |
+| Eleni Zlotkey , SA_MAN         |
+| Peter Tucker , SA_REP          |
+| David Bernstein , SA_REP       |
+| Peter Hall , SA_REP            |
+| Christopher Olsen , SA_REP     |
+| Nanette Cambrault , SA_REP     |
+| Oliver Tuvault , SA_REP        |
+| Janette King , SA_REP          |
+| Patrick Sully , SA_REP         |
+| Allan McEwen , SA_REP          |
+| Lindsey Smith , SA_REP         |
+| Louise Doran , SA_REP          |
+| Sarath Sewall , SA_REP         |
+| Clara Vishney , SA_REP         |
+| Danielle Greene , SA_REP       |
+| Mattea Marvins , SA_REP        |
+| David Lee , SA_REP             |
+| Sundar Ande , SA_REP           |
+| Amit Banda , SA_REP            |
+| Lisa Ozer , SA_REP             |
+| Harrison Bloom , SA_REP        |
+| Tayler Fox , SA_REP            |
+| William Smith , SA_REP         |
+| Elizabeth Bates , SA_REP       |
+| Sundita Kumar , SA_REP         |
+| Ellen Abel , SA_REP            |
+| Alyssa Hutton , SA_REP         |
+| Jonathon Taylor , SA_REP       |
+| Jack Livingston , SA_REP       |
+| Kimberely Grant , SA_REP       |
+| Charles Johnson , SA_REP       |
+| Winston Taylor , SH_CLERK      |
+| Jean Fleaur , SH_CLERK         |
+| Martha Sullivan , SH_CLERK     |
+| Girard Geoni , SH_CLERK        |
+| Nandita Sarchand , SH_CLERK    |
+| Alexis Bull , SH_CLERK         |
+| Julia Dellinger , SH_CLERK     |
+| Anthony Cabrio , SH_CLERK      |
+| Kelly Chung , SH_CLERK         |
+| Jennifer Dilly , SH_CLERK      |
+| Timothy Gates , SH_CLERK       |
+| Randall Perkins , SH_CLERK     |
+| Sarah Bell , SH_CLERK          |
+| Britney Everett , SH_CLERK     |
+| Samuel McCain , SH_CLERK       |
+| Vance Jones , SH_CLERK         |
+| Alana Walsh , SH_CLERK         |
+| Kevin Feeney , SH_CLERK        |
+| Donald OConnell , SH_CLERK     |
+| Douglas Grant , SH_CLERK       |
+| Jennifer Whalen , AD_ASST      |
+| Michael Hartstein , MK_MAN     |
+| Pat Fay , MK_REP               |
+| Susan Mavris , HR_REP          |
+| Hermann Baer , PR_REP          |
+| Shelley Higgins , AC_MGR       |
+| William Gietz , AC_ACCOUNT     |
++--------------------------------+
+
+
+4. Display the hire date, name and department number for all clerks. 
+mysql> select concat(first_name," ",last_name) as "Employee Name",hire_date,department_id from employees where job_id in ("pu_clerk","sh_clerk","st_clerk");
++-------------------+------------+---------------+
+| Employee Name     | hire_date  | department_id |
++-------------------+------------+---------------+
+| Alexander Khoo    | 1995-05-18 |            30 |
+| Shelli Baida      | 1997-12-24 |            30 |
+| Sigal Tobias      | 1997-07-24 |            30 |
+| Guy Himuro        | 1998-11-15 |            30 |
+| Karen Colmenares  | 1999-08-10 |            30 |
+| Julia Nayer       | 1997-07-16 |            50 |
+| Irene Mikkilineni | 1998-09-28 |            50 |
+| James Landry      | 1999-01-14 |            50 |
+| Steven Markle     | 2000-03-08 |            50 |
+| Laura Bissot      | 1997-08-20 |            50 |
+| Mozhe Atkinson    | 1997-10-30 |            50 |
+| James Marlow      | 1997-02-16 |            50 |
+| TJ Olson          | 1999-04-10 |            50 |
+| Jason Mallin      | 1996-06-14 |            50 |
+| Michael Rogers    | 1998-08-26 |            50 |
+| Ki Gee            | 1999-12-12 |            50 |
+| Hazel Philtanker  | 2000-02-06 |            50 |
+| Renske Ladwig     | 1995-07-14 |            50 |
+| Stephen Stiles    | 1997-10-26 |            50 |
+| John Seo          | 1998-02-12 |            50 |
+| Joshua Patel      | 1998-04-06 |            50 |
+| Trenna Rajs       | 1995-10-17 |            50 |
+| Curtis Davies     | 1997-01-29 |            50 |
+| Randall Matos     | 1998-03-15 |            50 |
+| Peter Vargas      | 1998-07-09 |            50 |
+| Winston Taylor    | 1998-01-24 |            50 |
+| Jean Fleaur       | 1998-02-23 |            50 |
+| Martha Sullivan   | 1999-06-21 |            50 |
+| Girard Geoni      | 2000-02-03 |            50 |
+| Nandita Sarchand  | 1996-01-27 |            50 |
+| Alexis Bull       | 1997-02-20 |            50 |
+| Julia Dellinger   | 1998-06-24 |            50 |
+| Anthony Cabrio    | 1999-02-07 |            50 |
+| Kelly Chung       | 1997-06-14 |            50 |
+| Jennifer Dilly    | 1997-08-13 |            50 |
+| Timothy Gates     | 1998-07-11 |            50 |
+| Randall Perkins   | 1999-12-19 |            50 |
+| Sarah Bell        | 1996-02-04 |            50 |
+| Britney Everett   | 1997-03-03 |            50 |
+| Samuel McCain     | 1998-07-01 |            50 |
+| Vance Jones       | 1999-03-17 |            50 |
+| Alana Walsh       | 1998-04-24 |            50 |
+| Kevin Feeney      | 1998-05-23 |            50 |
+| Donald OConnell   | 1999-06-21 |            50 |
+| Douglas Grant     | 2000-01-13 |            50 |
++-------------------+------------+---------------+
+
+
+5. Create a query to display all the data from the EMP table. Separate each column by a comma. Name the column THE OUTPUT.
+mysql> select concat_ws(" ",employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,commission_pct,manager_id,department_id) as "The OUTPUT" from employees;
++------------------------------------------------------------------------------------------+
+| The OUTPUT                                                                               |
++------------------------------------------------------------------------------------------+
+| 100 Steven King SKING 515.123.4567 1987-06-17 AD_PRES 24000.00 90                        |
+| 101 Neena Kochhar NKOCHHAR 515.123.4568 1989-09-21 AD_VP 17000.00 100 90                 |
+| 102 Lex De Haan LDEHAAN 515.123.4569 1993-01-13 AD_VP 17000.00 100 90                    |
+| 103 Alexander Hunold AHUNOLD 590.423.4567 1990-01-03 IT_PROG 9000.00 102 60              |
+| 104 Bruce Ernst BERNST 590.423.4568 1991-05-21 IT_PROG 6000.00 103 60                    |
+| 105 David Austin DAUSTIN 590.423.4569 1997-06-25 IT_PROG 4800.00 103 60                  |
+| 106 Valli Pataballa VPATABAL 590.423.4560 1998-02-05 IT_PROG 4800.00 103 60              |
+| 107 Diana Lorentz DLORENTZ 590.423.5567 1999-02-07 IT_PROG 4200.00 103 60                |
+| 108 Nancy Greenberg NGREENBE 515.124.4569 1994-08-17 FI_MGR 12000.00 101 100             |
+| 109 Daniel Faviet DFAVIET 515.124.4169 1994-08-16 FI_ACCOUNT 9000.00 108 100             |
+| 110 John Chen JCHEN 515.124.4269 1997-09-28 FI_ACCOUNT 8200.00 108 100                   |
+| 111 Ismael Sciarra ISCIARRA 515.124.4369 1997-09-30 FI_ACCOUNT 7700.00 108 100           |
+| 112 Jose Manuel Urman JMURMAN 515.124.4469 1998-03-07 FI_ACCOUNT 7800.00 108 100         |
+| 113 Luis Popp LPOPP 515.124.4567 1999-12-07 FI_ACCOUNT 6900.00 108 100                   |
+| 114 Den Raphaely DRAPHEAL 515.127.4561 1994-12-07 PU_MAN 11000.00 100 30                 |
+| 115 Alexander Khoo AKHOO 515.127.4562 1995-05-18 PU_CLERK 3100.00 114 30                 |
+| 116 Shelli Baida SBAIDA 515.127.4563 1997-12-24 PU_CLERK 2900.00 114 30                  |
+| 117 Sigal Tobias STOBIAS 515.127.4564 1997-07-24 PU_CLERK 2800.00 114 30                 |
+| 118 Guy Himuro GHIMURO 515.127.4565 1998-11-15 PU_CLERK 2600.00 114 30                   |
+| 119 Karen Colmenares KCOLMENA 515.127.4566 1999-08-10 PU_CLERK 2500.00 114 30            |
+| 120 Matthew Weiss MWEISS 650.123.1234 1996-07-18 ST_MAN 8000.00 100 50                   |
+| 121 Adam Fripp AFRIPP 650.123.2234 1997-04-10 ST_MAN 8200.00 100 50                      |
+| 122 Payam Kaufling PKAUFLIN 650.123.3234 1995-05-01 ST_MAN 7900.00 100 50                |
+| 123 Shanta Vollman SVOLLMAN 650.123.4234 1997-10-10 ST_MAN 6500.00 100 50                |
+| 124 Kevin Mourgos KMOURGOS 650.123.5234 1999-11-16 ST_MAN 5800.00 100 50                 |
+| 125 Julia Nayer JNAYER 650.124.1214 1997-07-16 ST_CLERK 3200.00 120 50                   |
+| 126 Irene Mikkilineni IMIKKILI 650.124.1224 1998-09-28 ST_CLERK 2700.00 120 50           |
+| 127 James Landry JLANDRY 650.124.1334 1999-01-14 ST_CLERK 2400.00 120 50                 |
+| 128 Steven Markle SMARKLE 650.124.1434 2000-03-08 ST_CLERK 2200.00 120 50                |
+| 129 Laura Bissot LBISSOT 650.124.5234 1997-08-20 ST_CLERK 3300.00 121 50                 |
+| 130 Mozhe Atkinson MATKINSO 650.124.6234 1997-10-30 ST_CLERK 2800.00 121 50              |
+| 131 James Marlow JAMRLOW 650.124.7234 1997-02-16 ST_CLERK 2500.00 121 50                 |
+| 132 TJ Olson TJOLSON 650.124.8234 1999-04-10 ST_CLERK 2100.00 121 50                     |
+| 133 Jason Mallin JMALLIN 650.127.1934 1996-06-14 ST_CLERK 3300.00 122 50                 |
+| 134 Michael Rogers MROGERS 650.127.1834 1998-08-26 ST_CLERK 2900.00 122 50               |
+| 135 Ki Gee KGEE 650.127.1734 1999-12-12 ST_CLERK 2400.00 122 50                          |
+| 136 Hazel Philtanker HPHILTAN 650.127.1634 2000-02-06 ST_CLERK 2200.00 122 50            |
+| 137 Renske Ladwig RLADWIG 650.121.1234 1995-07-14 ST_CLERK 3600.00 123 50                |
+| 138 Stephen Stiles SSTILES 650.121.2034 1997-10-26 ST_CLERK 3200.00 123 50               |
+| 139 John Seo JSEO 650.121.2019 1998-02-12 ST_CLERK 2700.00 123 50                        |
+| 140 Joshua Patel JPATEL 650.121.1834 1998-04-06 ST_CLERK 2500.00 123 50                  |
+| 141 Trenna Rajs TRAJS 650.121.8009 1995-10-17 ST_CLERK 3500.00 124 50                    |
+| 142 Curtis Davies CDAVIES 650.121.2994 1997-01-29 ST_CLERK 3100.00 124 50                |
+| 143 Randall Matos RMATOS 650.121.2874 1998-03-15 ST_CLERK 2600.00 124 50                 |
+| 144 Peter Vargas PVARGAS 650.121.2004 1998-07-09 ST_CLERK 2500.00 124 50                 |
+| 145 John Russell JRUSSEL 011.44.1344.429268 1996-10-01 SA_MAN 14000.00 0.40 100 80       |
+| 146 Karen Partners KPARTNER 011.44.1344.467268 1997-01-05 SA_MAN 13500.00 0.30 100 80    |
+| 147 Alberto Errazuriz AERRAZUR 011.44.1344.429278 1997-03-10 SA_MAN 12000.00 0.30 100 80 |
+| 148 Gerald Cambrault GCAMBRAU 011.44.1344.619268 1999-10-15 SA_MAN 11000.00 0.30 100 80  |
+| 149 Eleni Zlotkey EZLOTKEY 011.44.1344.429018 2000-01-29 SA_MAN 10500.00 0.20 100 80     |
+| 150 Peter Tucker PTUCKER 011.44.1344.129268 1997-01-30 SA_REP 10000.00 0.30 145 80       |
+| 151 David Bernstein DBERNSTE 011.44.1344.345268 1997-03-24 SA_REP 9500.00 0.25 145 80    |
+| 152 Peter Hall PHALL 011.44.1344.478968 1997-08-20 SA_REP 9000.00 0.25 145 80            |
+| 153 Christopher Olsen COLSEN 011.44.1344.498718 1998-03-30 SA_REP 8000.00 0.20 145 80    |
+| 154 Nanette Cambrault NCAMBRAU 011.44.1344.987668 1998-12-09 SA_REP 7500.00 0.20 145 80  |
+| 155 Oliver Tuvault OTUVAULT 011.44.1344.486508 1999-11-23 SA_REP 7000.00 0.15 145 80     |
+| 156 Janette King JKING 011.44.1345.429268 1996-01-30 SA_REP 10000.00 0.35 146 80         |
+| 157 Patrick Sully PSULLY 011.44.1345.929268 1996-03-04 SA_REP 9500.00 0.35 146 80        |
+| 158 Allan McEwen AMCEWEN 011.44.1345.829268 1996-08-01 SA_REP 9000.00 0.35 146 80        |
+| 159 Lindsey Smith LSMITH 011.44.1345.729268 1997-03-10 SA_REP 8000.00 0.30 146 80        |
+| 160 Louise Doran LDORAN 011.44.1345.629268 1997-12-15 SA_REP 7500.00 0.30 146 80         |
+| 161 Sarath Sewall SSEWALL 011.44.1345.529268 1998-11-03 SA_REP 7000.00 0.25 146 80       |
+| 162 Clara Vishney CVISHNEY 011.44.1346.129268 1997-11-11 SA_REP 10500.00 0.25 147 80     |
+| 163 Danielle Greene DGREENE 011.44.1346.229268 1999-03-19 SA_REP 9500.00 0.15 147 80     |
+| 164 Mattea Marvins MMARVINS 011.44.1346.329268 2000-01-24 SA_REP 7200.00 0.10 147 80     |
+| 165 David Lee DLEE 011.44.1346.529268 2000-02-23 SA_REP 6800.00 0.10 147 80              |
+| 166 Sundar Ande SANDE 011.44.1346.629268 2000-03-24 SA_REP 6400.00 0.10 147 80           |
+| 167 Amit Banda ABANDA 011.44.1346.729268 2000-04-21 SA_REP 6200.00 0.10 147 80           |
+| 168 Lisa Ozer LOZER 011.44.1343.929268 1997-03-11 SA_REP 11500.00 0.25 148 80            |
+| 169 Harrison Bloom HBLOOM 011.44.1343.829268 1998-03-23 SA_REP 10000.00 0.20 148 80      |
+| 170 Tayler Fox TFOX 011.44.1343.729268 1998-01-24 SA_REP 9600.00 0.20 148 80             |
+| 171 William Smith WSMITH 011.44.1343.629268 1999-02-23 SA_REP 7400.00 0.15 148 80        |
+| 172 Elizabeth Bates EBATES 011.44.1343.529268 1999-03-24 SA_REP 7300.00 0.15 148 80      |
+| 173 Sundita Kumar SKUMAR 011.44.1343.329268 2000-04-21 SA_REP 6100.00 0.10 148 80        |
+| 174 Ellen Abel EABEL 011.44.1644.429267 1996-05-11 SA_REP 11000.00 0.30 149 80           |
+| 175 Alyssa Hutton AHUTTON 011.44.1644.429266 1997-03-19 SA_REP 8800.00 0.25 149 80       |
+| 176 Jonathon Taylor JTAYLOR 011.44.1644.429265 1998-03-24 SA_REP 8600.00 0.20 149 80     |
+| 177 Jack Livingston JLIVINGS 011.44.1644.429264 1998-04-23 SA_REP 8400.00 0.20 149 80    |
+| 178 Kimberely Grant KGRANT 011.44.1644.429263 1999-05-24 SA_REP 7000.00 0.15 149         |
+| 179 Charles Johnson CJOHNSON 011.44.1644.429262 2000-01-04 SA_REP 6200.00 0.10 149 80    |
+| 180 Winston Taylor WTAYLOR 650.507.9876 1998-01-24 SH_CLERK 3200.00 120 50               |
+| 181 Jean Fleaur JFLEAUR 650.507.9877 1998-02-23 SH_CLERK 3100.00 120 50                  |
+| 182 Martha Sullivan MSULLIVA 650.507.9878 1999-06-21 SH_CLERK 2500.00 120 50             |
+| 183 Girard Geoni GGEONI 650.507.9879 2000-02-03 SH_CLERK 2800.00 120 50                  |
+| 184 Nandita Sarchand NSARCHAN 650.509.1876 1996-01-27 SH_CLERK 4200.00 121 50            |
+| 185 Alexis Bull ABULL 650.509.2876 1997-02-20 SH_CLERK 4100.00 121 50                    |
+| 186 Julia Dellinger JDELLING 650.509.3876 1998-06-24 SH_CLERK 3400.00 121 50             |
+| 187 Anthony Cabrio ACABRIO 650.509.4876 1999-02-07 SH_CLERK 3000.00 121 50               |
+| 188 Kelly Chung KCHUNG 650.505.1876 1997-06-14 SH_CLERK 3800.00 122 50                   |
+| 189 Jennifer Dilly JDILLY 650.505.2876 1997-08-13 SH_CLERK 3600.00 122 50                |
+| 190 Timothy Gates TGATES 650.505.3876 1998-07-11 SH_CLERK 2900.00 122 50                 |
+| 191 Randall Perkins RPERKINS 650.505.4876 1999-12-19 SH_CLERK 2500.00 122 50             |
+| 192 Sarah Bell SBELL 650.501.1876 1996-02-04 SH_CLERK 4000.00 123 50                     |
+| 193 Britney Everett BEVERETT 650.501.2876 1997-03-03 SH_CLERK 3900.00 123 50             |
+| 194 Samuel McCain SMCCAIN 650.501.3876 1998-07-01 SH_CLERK 3200.00 123 50                |
+| 195 Vance Jones VJONES 650.501.4876 1999-03-17 SH_CLERK 2800.00 123 50                   |
+| 196 Alana Walsh AWALSH 650.507.9811 1998-04-24 SH_CLERK 3100.00 124 50                   |
+| 197 Kevin Feeney KFEENEY 650.507.9822 1998-05-23 SH_CLERK 3000.00 124 50                 |
+| 198 Donald OConnell DOCONNEL 650.507.9833 1999-06-21 SH_CLERK 2600.00 124 50             |
+| 199 Douglas Grant DGRANT 650.507.9844 2000-01-13 SH_CLERK 2600.00 124 50                 |
+| 200 Jennifer Whalen JWHALEN 515.123.4444 1987-09-17 AD_ASST 4400.00 101 10               |
+| 201 Michael Hartstein MHARTSTE 515.123.5555 1996-02-17 MK_MAN 13000.00 100 20            |
+| 202 Pat Fay PFAY 603.123.6666 1997-08-17 MK_REP 6000.00 201 20                           |
+| 203 Susan Mavris SMAVRIS 515.123.7777 1994-06-07 HR_REP 6500.00 101 40                   |
+| 204 Hermann Baer HBAER 515.123.8888 1994-06-07 PR_REP 10000.00 101 70                    |
+| 205 Shelley Higgins SHIGGINS 515.123.8080 1994-06-07 AC_MGR 12000.00 101 110             |
+| 206 William Gietz WGIETZ 51hr5.123.8181 1994-06-07 AC_ACCOUNT 8300.00 205 110            |
++------------------------------------------------------------------------------------------+
+
+
+6. Display the names and salaries of all employees with a salary greater than 2000.
+mysql> select concat(first_name," ",last_name) as "Employee Name" , salary from employees where salary > 2000;
++-------------------+----------+
+| Employee Name     | salary   |
++-------------------+----------+
+| Steven King       | 24000.00 |
+| Neena Kochhar     | 17000.00 |
+| Lex De Haan       | 17000.00 |
+| Alexander Hunold  |  9000.00 |
+| Bruce Ernst       |  6000.00 |
+| David Austin      |  4800.00 |
+| Valli Pataballa   |  4800.00 |
+| Diana Lorentz     |  4200.00 |
+| Nancy Greenberg   | 12000.00 |
+| Daniel Faviet     |  9000.00 |
+| John Chen         |  8200.00 |
+| Ismael Sciarra    |  7700.00 |
+| Jose Manuel Urman |  7800.00 |
+| Luis Popp         |  6900.00 |
+| Den Raphaely      | 11000.00 |
+| Alexander Khoo    |  3100.00 |
+| Shelli Baida      |  2900.00 |
+| Sigal Tobias      |  2800.00 |
+| Guy Himuro        |  2600.00 |
+| Karen Colmenares  |  2500.00 |
+| Matthew Weiss     |  8000.00 |
+| Adam Fripp        |  8200.00 |
+| Payam Kaufling    |  7900.00 |
+| Shanta Vollman    |  6500.00 |
+| Kevin Mourgos     |  5800.00 |
+| Julia Nayer       |  3200.00 |
+| Irene Mikkilineni |  2700.00 |
+| James Landry      |  2400.00 |
+| Steven Markle     |  2200.00 |
+| Laura Bissot      |  3300.00 |
+| Mozhe Atkinson    |  2800.00 |
+| James Marlow      |  2500.00 |
+| TJ Olson          |  2100.00 |
+| Jason Mallin      |  3300.00 |
+| Michael Rogers    |  2900.00 |
+| Ki Gee            |  2400.00 |
+| Hazel Philtanker  |  2200.00 |
+| Renske Ladwig     |  3600.00 |
+| Stephen Stiles    |  3200.00 |
+| John Seo          |  2700.00 |
+| Joshua Patel      |  2500.00 |
+| Trenna Rajs       |  3500.00 |
+| Curtis Davies     |  3100.00 |
+| Randall Matos     |  2600.00 |
+| Peter Vargas      |  2500.00 |
+| John Russell      | 14000.00 |
+| Karen Partners    | 13500.00 |
+| Alberto Errazuriz | 12000.00 |
+| Gerald Cambrault  | 11000.00 |
+| Eleni Zlotkey     | 10500.00 |
+| Peter Tucker      | 10000.00 |
+| David Bernstein   |  9500.00 |
+| Peter Hall        |  9000.00 |
+| Christopher Olsen |  8000.00 |
+| Nanette Cambrault |  7500.00 |
+| Oliver Tuvault    |  7000.00 |
+| Janette King      | 10000.00 |
+| Patrick Sully     |  9500.00 |
+| Allan McEwen      |  9000.00 |
+| Lindsey Smith     |  8000.00 |
+| Louise Doran      |  7500.00 |
+| Sarath Sewall     |  7000.00 |
+| Clara Vishney     | 10500.00 |
+| Danielle Greene   |  9500.00 |
+| Mattea Marvins    |  7200.00 |
+| David Lee         |  6800.00 |
+| Sundar Ande       |  6400.00 |
+| Amit Banda        |  6200.00 |
+| Lisa Ozer         | 11500.00 |
+| Harrison Bloom    | 10000.00 |
+| Tayler Fox        |  9600.00 |
+| William Smith     |  7400.00 |
+| Elizabeth Bates   |  7300.00 |
+| Sundita Kumar     |  6100.00 |
+| Ellen Abel        | 11000.00 |
+| Alyssa Hutton     |  8800.00 |
+| Jonathon Taylor   |  8600.00 |
+| Jack Livingston   |  8400.00 |
+| Kimberely Grant   |  7000.00 |
+| Charles Johnson   |  6200.00 |
+| Winston Taylor    |  3200.00 |
+| Jean Fleaur       |  3100.00 |
+| Martha Sullivan   |  2500.00 |
+| Girard Geoni      |  2800.00 |
+| Nandita Sarchand  |  4200.00 |
+| Alexis Bull       |  4100.00 |
+| Julia Dellinger   |  3400.00 |
+| Anthony Cabrio    |  3000.00 |
+| Kelly Chung       |  3800.00 |
+| Jennifer Dilly    |  3600.00 |
+| Timothy Gates     |  2900.00 |
+| Randall Perkins   |  2500.00 |
+| Sarah Bell        |  4000.00 |
+| Britney Everett   |  3900.00 |
+| Samuel McCain     |  3200.00 |
+| Vance Jones       |  2800.00 |
+| Alana Walsh       |  3100.00 |
+| Kevin Feeney      |  3000.00 |
+| Donald OConnell   |  2600.00 |
+| Douglas Grant     |  2600.00 |
+| Jennifer Whalen   |  4400.00 |
+| Michael Hartstein | 13000.00 |
+| Pat Fay           |  6000.00 |
+| Susan Mavris      |  6500.00 |
+| Hermann Baer      | 10000.00 |
+| Shelley Higgins   | 12000.00 |
+| William Gietz     |  8300.00 |
++-------------------+----------+
+
+
+7. Display the names and dates of employees with the column headers "Name" and "Start Date" 
+mysql> select concat(first_name," ",last_name) as NAME , hire_date as "Start Date" from employees;
++-------------------+------------+
+| NAME              | Start Date |
++-------------------+------------+
+| Steven King       | 1987-06-17 |
+| Neena Kochhar     | 1989-09-21 |
+| Lex De Haan       | 1993-01-13 |
+| Alexander Hunold  | 1990-01-03 |
+| Bruce Ernst       | 1991-05-21 |
+| David Austin      | 1997-06-25 |
+| Valli Pataballa   | 1998-02-05 |
+| Diana Lorentz     | 1999-02-07 |
+| Nancy Greenberg   | 1994-08-17 |
+| Daniel Faviet     | 1994-08-16 |
+| John Chen         | 1997-09-28 |
+| Ismael Sciarra    | 1997-09-30 |
+| Jose Manuel Urman | 1998-03-07 |
+| Luis Popp         | 1999-12-07 |
+| Den Raphaely      | 1994-12-07 |
+| Alexander Khoo    | 1995-05-18 |
+| Shelli Baida      | 1997-12-24 |
+| Sigal Tobias      | 1997-07-24 |
+| Guy Himuro        | 1998-11-15 |
+| Karen Colmenares  | 1999-08-10 |
+| Matthew Weiss     | 1996-07-18 |
+| Adam Fripp        | 1997-04-10 |
+| Payam Kaufling    | 1995-05-01 |
+| Shanta Vollman    | 1997-10-10 |
+| Kevin Mourgos     | 1999-11-16 |
+| Julia Nayer       | 1997-07-16 |
+| Irene Mikkilineni | 1998-09-28 |
+| James Landry      | 1999-01-14 |
+| Steven Markle     | 2000-03-08 |
+| Laura Bissot      | 1997-08-20 |
+| Mozhe Atkinson    | 1997-10-30 |
+| James Marlow      | 1997-02-16 |
+| TJ Olson          | 1999-04-10 |
+| Jason Mallin      | 1996-06-14 |
+| Michael Rogers    | 1998-08-26 |
+| Ki Gee            | 1999-12-12 |
+| Hazel Philtanker  | 2000-02-06 |
+| Renske Ladwig     | 1995-07-14 |
+| Stephen Stiles    | 1997-10-26 |
+| John Seo          | 1998-02-12 |
+| Joshua Patel      | 1998-04-06 |
+| Trenna Rajs       | 1995-10-17 |
+| Curtis Davies     | 1997-01-29 |
+| Randall Matos     | 1998-03-15 |
+| Peter Vargas      | 1998-07-09 |
+| John Russell      | 1996-10-01 |
+| Karen Partners    | 1997-01-05 |
+| Alberto Errazuriz | 1997-03-10 |
+| Gerald Cambrault  | 1999-10-15 |
+| Eleni Zlotkey     | 2000-01-29 |
+| Peter Tucker      | 1997-01-30 |
+| David Bernstein   | 1997-03-24 |
+| Peter Hall        | 1997-08-20 |
+| Christopher Olsen | 1998-03-30 |
+| Nanette Cambrault | 1998-12-09 |
+| Oliver Tuvault    | 1999-11-23 |
+| Janette King      | 1996-01-30 |
+| Patrick Sully     | 1996-03-04 |
+| Allan McEwen      | 1996-08-01 |
+| Lindsey Smith     | 1997-03-10 |
+| Louise Doran      | 1997-12-15 |
+| Sarath Sewall     | 1998-11-03 |
+| Clara Vishney     | 1997-11-11 |
+| Danielle Greene   | 1999-03-19 |
+| Mattea Marvins    | 2000-01-24 |
+| David Lee         | 2000-02-23 |
+| Sundar Ande       | 2000-03-24 |
+| Amit Banda        | 2000-04-21 |
+| Lisa Ozer         | 1997-03-11 |
+| Harrison Bloom    | 1998-03-23 |
+| Tayler Fox        | 1998-01-24 |
+| William Smith     | 1999-02-23 |
+| Elizabeth Bates   | 1999-03-24 |
+| Sundita Kumar     | 2000-04-21 |
+| Ellen Abel        | 1996-05-11 |
+| Alyssa Hutton     | 1997-03-19 |
+| Jonathon Taylor   | 1998-03-24 |
+| Jack Livingston   | 1998-04-23 |
+| Kimberely Grant   | 1999-05-24 |
+| Charles Johnson   | 2000-01-04 |
+| Winston Taylor    | 1998-01-24 |
+| Jean Fleaur       | 1998-02-23 |
+| Martha Sullivan   | 1999-06-21 |
+| Girard Geoni      | 2000-02-03 |
+| Nandita Sarchand  | 1996-01-27 |
+| Alexis Bull       | 1997-02-20 |
+| Julia Dellinger   | 1998-06-24 |
+| Anthony Cabrio    | 1999-02-07 |
+| Kelly Chung       | 1997-06-14 |
+| Jennifer Dilly    | 1997-08-13 |
+| Timothy Gates     | 1998-07-11 |
+| Randall Perkins   | 1999-12-19 |
+| Sarah Bell        | 1996-02-04 |
+| Britney Everett   | 1997-03-03 |
+| Samuel McCain     | 1998-07-01 |
+| Vance Jones       | 1999-03-17 |
+| Alana Walsh       | 1998-04-24 |
+| Kevin Feeney      | 1998-05-23 |
+| Donald OConnell   | 1999-06-21 |
+| Douglas Grant     | 2000-01-13 |
+| Jennifer Whalen   | 1987-09-17 |
+| Michael Hartstein | 1996-02-17 |
+| Pat Fay           | 1997-08-17 |
+| Susan Mavris      | 1994-06-07 |
+| Hermann Baer      | 1994-06-07 |
+| Shelley Higgins   | 1994-06-07 |
+| William Gietz     | 1994-06-07 |
++-------------------+------------+
+
+
+8. Display the names and hire dates of all employees in the order they were hired. 
+mysql> select concat(first_name," ",last_name) as "Employee Name" , hire_date from employees order by hire_date;
++-------------------+------------+
+| Employee Name     | hire_date  |
++-------------------+------------+
+| Steven King       | 1987-06-17 |
+| Jennifer Whalen   | 1987-09-17 |
+| Neena Kochhar     | 1989-09-21 |
+| Alexander Hunold  | 1990-01-03 |
+| Bruce Ernst       | 1991-05-21 |
+| Lex De Haan       | 1993-01-13 |
+| Susan Mavris      | 1994-06-07 |
+| Hermann Baer      | 1994-06-07 |
+| Shelley Higgins   | 1994-06-07 |
+| William Gietz     | 1994-06-07 |
+| Daniel Faviet     | 1994-08-16 |
+| Nancy Greenberg   | 1994-08-17 |
+| Den Raphaely      | 1994-12-07 |
+| Payam Kaufling    | 1995-05-01 |
+| Alexander Khoo    | 1995-05-18 |
+| Renske Ladwig     | 1995-07-14 |
+| Trenna Rajs       | 1995-10-17 |
+| Nandita Sarchand  | 1996-01-27 |
+| Janette King      | 1996-01-30 |
+| Sarah Bell        | 1996-02-04 |
+| Michael Hartstein | 1996-02-17 |
+| Patrick Sully     | 1996-03-04 |
+| Ellen Abel        | 1996-05-11 |
+| Jason Mallin      | 1996-06-14 |
+| Matthew Weiss     | 1996-07-18 |
+| Allan McEwen      | 1996-08-01 |
+| John Russell      | 1996-10-01 |
+| Karen Partners    | 1997-01-05 |
+| Curtis Davies     | 1997-01-29 |
+| Peter Tucker      | 1997-01-30 |
+| James Marlow      | 1997-02-16 |
+| Alexis Bull       | 1997-02-20 |
+| Britney Everett   | 1997-03-03 |
+| Alberto Errazuriz | 1997-03-10 |
+| Lindsey Smith     | 1997-03-10 |
+| Lisa Ozer         | 1997-03-11 |
+| Alyssa Hutton     | 1997-03-19 |
+| David Bernstein   | 1997-03-24 |
+| Adam Fripp        | 1997-04-10 |
+| Kelly Chung       | 1997-06-14 |
+| David Austin      | 1997-06-25 |
+| Julia Nayer       | 1997-07-16 |
+| Sigal Tobias      | 1997-07-24 |
+| Jennifer Dilly    | 1997-08-13 |
+| Pat Fay           | 1997-08-17 |
+| Laura Bissot      | 1997-08-20 |
+| Peter Hall        | 1997-08-20 |
+| John Chen         | 1997-09-28 |
+| Ismael Sciarra    | 1997-09-30 |
+| Shanta Vollman    | 1997-10-10 |
+| Stephen Stiles    | 1997-10-26 |
+| Mozhe Atkinson    | 1997-10-30 |
+| Clara Vishney     | 1997-11-11 |
+| Louise Doran      | 1997-12-15 |
+| Shelli Baida      | 1997-12-24 |
+| Tayler Fox        | 1998-01-24 |
+| Winston Taylor    | 1998-01-24 |
+| Valli Pataballa   | 1998-02-05 |
+| John Seo          | 1998-02-12 |
+| Jean Fleaur       | 1998-02-23 |
+| Jose Manuel Urman | 1998-03-07 |
+| Randall Matos     | 1998-03-15 |
+| Harrison Bloom    | 1998-03-23 |
+| Jonathon Taylor   | 1998-03-24 |
+| Christopher Olsen | 1998-03-30 |
+| Joshua Patel      | 1998-04-06 |
+| Jack Livingston   | 1998-04-23 |
+| Alana Walsh       | 1998-04-24 |
+| Kevin Feeney      | 1998-05-23 |
+| Julia Dellinger   | 1998-06-24 |
+| Samuel McCain     | 1998-07-01 |
+| Peter Vargas      | 1998-07-09 |
+| Timothy Gates     | 1998-07-11 |
+| Michael Rogers    | 1998-08-26 |
+| Irene Mikkilineni | 1998-09-28 |
+| Sarath Sewall     | 1998-11-03 |
+| Guy Himuro        | 1998-11-15 |
+| Nanette Cambrault | 1998-12-09 |
+| James Landry      | 1999-01-14 |
+| Diana Lorentz     | 1999-02-07 |
+| Anthony Cabrio    | 1999-02-07 |
+| William Smith     | 1999-02-23 |
+| Vance Jones       | 1999-03-17 |
+| Danielle Greene   | 1999-03-19 |
+| Elizabeth Bates   | 1999-03-24 |
+| TJ Olson          | 1999-04-10 |
+| Kimberely Grant   | 1999-05-24 |
+| Martha Sullivan   | 1999-06-21 |
+| Donald OConnell   | 1999-06-21 |
+| Karen Colmenares  | 1999-08-10 |
+| Gerald Cambrault  | 1999-10-15 |
+| Kevin Mourgos     | 1999-11-16 |
+| Oliver Tuvault    | 1999-11-23 |
+| Luis Popp         | 1999-12-07 |
+| Ki Gee            | 1999-12-12 |
+| Randall Perkins   | 1999-12-19 |
+| Charles Johnson   | 2000-01-04 |
+| Douglas Grant     | 2000-01-13 |
+| Mattea Marvins    | 2000-01-24 |
+| Eleni Zlotkey     | 2000-01-29 |
+| Girard Geoni      | 2000-02-03 |
+| Hazel Philtanker  | 2000-02-06 |
+| David Lee         | 2000-02-23 |
+| Steven Markle     | 2000-03-08 |
+| Sundar Ande       | 2000-03-24 |
+| Amit Banda        | 2000-04-21 |
+| Sundita Kumar     | 2000-04-21 |
++-------------------+------------+
+
+
+9. Display the names and salaries of all employees in reverse salary order. 
+mysql> select concat(first_name," ",last_name) as "Employee Name" ,salary from employees order by salary desc;
++-------------------+----------+
+| Employee Name     | salary   |
++-------------------+----------+
+| Steven King       | 24000.00 |
+| Neena Kochhar     | 17000.00 |
+| Lex De Haan       | 17000.00 |
+| John Russell      | 14000.00 |
+| Karen Partners    | 13500.00 |
+| Michael Hartstein | 13000.00 |
+| Nancy Greenberg   | 12000.00 |
+| Alberto Errazuriz | 12000.00 |
+| Shelley Higgins   | 12000.00 |
+| Lisa Ozer         | 11500.00 |
+| Den Raphaely      | 11000.00 |
+| Gerald Cambrault  | 11000.00 |
+| Ellen Abel        | 11000.00 |
+| Eleni Zlotkey     | 10500.00 |
+| Clara Vishney     | 10500.00 |
+| Peter Tucker      | 10000.00 |
+| Janette King      | 10000.00 |
+| Harrison Bloom    | 10000.00 |
+| Hermann Baer      | 10000.00 |
+| Tayler Fox        |  9600.00 |
+| David Bernstein   |  9500.00 |
+| Patrick Sully     |  9500.00 |
+| Danielle Greene   |  9500.00 |
+| Alexander Hunold  |  9000.00 |
+| Daniel Faviet     |  9000.00 |
+| Peter Hall        |  9000.00 |
+| Allan McEwen      |  9000.00 |
+| Alyssa Hutton     |  8800.00 |
+| Jonathon Taylor   |  8600.00 |
+| Jack Livingston   |  8400.00 |
+| William Gietz     |  8300.00 |
+| John Chen         |  8200.00 |
+| Adam Fripp        |  8200.00 |
+| Matthew Weiss     |  8000.00 |
+| Christopher Olsen |  8000.00 |
+| Lindsey Smith     |  8000.00 |
+| Payam Kaufling    |  7900.00 |
+| Jose Manuel Urman |  7800.00 |
+| Ismael Sciarra    |  7700.00 |
+| Nanette Cambrault |  7500.00 |
+| Louise Doran      |  7500.00 |
+| William Smith     |  7400.00 |
+| Elizabeth Bates   |  7300.00 |
+| Mattea Marvins    |  7200.00 |
+| Oliver Tuvault    |  7000.00 |
+| Sarath Sewall     |  7000.00 |
+| Kimberely Grant   |  7000.00 |
+| Luis Popp         |  6900.00 |
+| David Lee         |  6800.00 |
+| Shanta Vollman    |  6500.00 |
+| Susan Mavris      |  6500.00 |
+| Sundar Ande       |  6400.00 |
+| Amit Banda        |  6200.00 |
+| Charles Johnson   |  6200.00 |
+| Sundita Kumar     |  6100.00 |
+| Bruce Ernst       |  6000.00 |
+| Pat Fay           |  6000.00 |
+| Kevin Mourgos     |  5800.00 |
+| David Austin      |  4800.00 |
+| Valli Pataballa   |  4800.00 |
+| Jennifer Whalen   |  4400.00 |
+| Diana Lorentz     |  4200.00 |
+| Nandita Sarchand  |  4200.00 |
+| Alexis Bull       |  4100.00 |
+| Sarah Bell        |  4000.00 |
+| Britney Everett   |  3900.00 |
+| Kelly Chung       |  3800.00 |
+| Renske Ladwig     |  3600.00 |
+| Jennifer Dilly    |  3600.00 |
+| Trenna Rajs       |  3500.00 |
+| Julia Dellinger   |  3400.00 |
+| Laura Bissot      |  3300.00 |
+| Jason Mallin      |  3300.00 |
+| Julia Nayer       |  3200.00 |
+| Stephen Stiles    |  3200.00 |
+| Winston Taylor    |  3200.00 |
+| Samuel McCain     |  3200.00 |
+| Alexander Khoo    |  3100.00 |
+| Curtis Davies     |  3100.00 |
+| Jean Fleaur       |  3100.00 |
+| Alana Walsh       |  3100.00 |
+| Anthony Cabrio    |  3000.00 |
+| Kevin Feeney      |  3000.00 |
+| Shelli Baida      |  2900.00 |
+| Michael Rogers    |  2900.00 |
+| Timothy Gates     |  2900.00 |
+| Sigal Tobias      |  2800.00 |
+| Mozhe Atkinson    |  2800.00 |
+| Girard Geoni      |  2800.00 |
+| Vance Jones       |  2800.00 |
+| Irene Mikkilineni |  2700.00 |
+| John Seo          |  2700.00 |
+| Guy Himuro        |  2600.00 |
+| Randall Matos     |  2600.00 |
+| Donald OConnell   |  2600.00 |
+| Douglas Grant     |  2600.00 |
+| Karen Colmenares  |  2500.00 |
+| James Marlow      |  2500.00 |
+| Joshua Patel      |  2500.00 |
+| Peter Vargas      |  2500.00 |
+| Martha Sullivan   |  2500.00 |
+| Randall Perkins   |  2500.00 |
+| James Landry      |  2400.00 |
+| Ki Gee            |  2400.00 |
+| Steven Markle     |  2200.00 |
+| Hazel Philtanker  |  2200.00 |
+| TJ Olson          |  2100.00 |
++-------------------+----------+
+
+10. Display 'ename" and "deptno" who are all earned commission and display salary in reverse order.
+mysql> select concat(first_name," ",last_name)as "Employee Name",department_id,salary from employees where commission_pct is not null order by salary desc;
++-------------------+---------------+----------+
+| Employee Name     | department_id | salary   |
++-------------------+---------------+----------+
+| John Russell      |            80 | 14000.00 |
+| Karen Partners    |            80 | 13500.00 |
+| Alberto Errazuriz |            80 | 12000.00 |
+| Lisa Ozer         |            80 | 11500.00 |
+| Gerald Cambrault  |            80 | 11000.00 |
+| Ellen Abel        |            80 | 11000.00 |
+| Eleni Zlotkey     |            80 | 10500.00 |
+| Clara Vishney     |            80 | 10500.00 |
+| Peter Tucker      |            80 | 10000.00 |
+| Janette King      |            80 | 10000.00 |
+| Harrison Bloom    |            80 | 10000.00 |
+| Tayler Fox        |            80 |  9600.00 |
+| David Bernstein   |            80 |  9500.00 |
+| Patrick Sully     |            80 |  9500.00 |
+| Danielle Greene   |            80 |  9500.00 |
+| Peter Hall        |            80 |  9000.00 |
+| Allan McEwen      |            80 |  9000.00 |
+| Alyssa Hutton     |            80 |  8800.00 |
+| Jonathon Taylor   |            80 |  8600.00 |
+| Jack Livingston   |            80 |  8400.00 |
+| Christopher Olsen |            80 |  8000.00 |
+| Lindsey Smith     |            80 |  8000.00 |
+| Nanette Cambrault |            80 |  7500.00 |
+| Louise Doran      |            80 |  7500.00 |
+| William Smith     |            80 |  7400.00 |
+| Elizabeth Bates   |            80 |  7300.00 |
+| Mattea Marvins    |            80 |  7200.00 |
+| Oliver Tuvault    |            80 |  7000.00 |
+| Sarath Sewall     |            80 |  7000.00 |
+| Kimberely Grant   |          NULL |  7000.00 |
+| David Lee         |            80 |  6800.00 |
+| Sundar Ande       |            80 |  6400.00 |
+| Amit Banda        |            80 |  6200.00 |
+| Charles Johnson   |            80 |  6200.00 |
+| Sundita Kumar     |            80 |  6100.00 |
++-------------------+---------------+----------+
+
+11. Display the last name and job title of all employees who do not have a manager.
+mysql> select last_name,job_title from employees inner join jobs on employees.job_id = jobs.job_id where manager_id is null;
++-----------+-----------+
+| last_name | job_title |
++-----------+-----------+
+| King      | President |
++-----------+-----------+
+
+12. Display the last name, job, and salary for all employees whose job is sales representative or stock clerk and whose salary is not equal to $2,500, $3,500, or $5,000
+mysql> select last_name , job_title , salary from employees inner join jobs on employees.job_id = jobs.job_id where job_title in ("Sales representative","stock clerk") and salary not in (2500,3500,5000);
++-------------+----------------------+----------+
+| last_name   | job_title            | salary   |
++-------------+----------------------+----------+
+| Tucker      | Sales Representative | 10000.00 |
+| Bernstein   | Sales Representative |  9500.00 |
+| Hall        | Sales Representative |  9000.00 |
+| Olsen       | Sales Representative |  8000.00 |
+| Cambrault   | Sales Representative |  7500.00 |
+| Tuvault     | Sales Representative |  7000.00 |
+| King        | Sales Representative | 10000.00 |
+| Sully       | Sales Representative |  9500.00 |
+| McEwen      | Sales Representative |  9000.00 |
+| Smith       | Sales Representative |  8000.00 |
+| Doran       | Sales Representative |  7500.00 |
+| Sewall      | Sales Representative |  7000.00 |
+| Vishney     | Sales Representative | 10500.00 |
+| Greene      | Sales Representative |  9500.00 |
+| Marvins     | Sales Representative |  7200.00 |
+| Lee         | Sales Representative |  6800.00 |
+| Ande        | Sales Representative |  6400.00 |
+| Banda       | Sales Representative |  6200.00 |
+| Ozer        | Sales Representative | 11500.00 |
+| Bloom       | Sales Representative | 10000.00 |
+| Fox         | Sales Representative |  9600.00 |
+| Smith       | Sales Representative |  7400.00 |
+| Bates       | Sales Representative |  7300.00 |
+| Kumar       | Sales Representative |  6100.00 |
+| Abel        | Sales Representative | 11000.00 |
+| Hutton      | Sales Representative |  8800.00 |
+| Taylor      | Sales Representative |  8600.00 |
+| Livingston  | Sales Representative |  8400.00 |
+| Grant       | Sales Representative |  7000.00 |
+| Johnson     | Sales Representative |  6200.00 |
+| Nayer       | Stock Clerk          |  3200.00 |
+| Mikkilineni | Stock Clerk          |  2700.00 |
+| Landry      | Stock Clerk          |  2400.00 |
+| Markle      | Stock Clerk          |  2200.00 |
+| Bissot      | Stock Clerk          |  3300.00 |
+| Atkinson    | Stock Clerk          |  2800.00 |
+| Olson       | Stock Clerk          |  2100.00 |
+| Mallin      | Stock Clerk          |  3300.00 |
+| Rogers      | Stock Clerk          |  2900.00 |
+| Gee         | Stock Clerk          |  2400.00 |
+| Philtanker  | Stock Clerk          |  2200.00 |
+| Ladwig      | Stock Clerk          |  3600.00 |
+| Stiles      | Stock Clerk          |  3200.00 |
+| Seo         | Stock Clerk          |  2700.00 |
+| Davies      | Stock Clerk          |  3100.00 |
+| Matos       | Stock Clerk          |  2600.00 |
++-------------+----------------------+----------+ 
+
+
+13. Display the maximum, minimum and average salary and commission earned. 
+mysql> select max(salary) as "Maximum Salary", min(salary) as "Minimum Salary", avg(salary) as "Average Salary", sum(commission_pct) as "Commission earned" from employees;
++----------------+----------------+----------------+-------------------+
+| Maximum Salary | Minimum Salary | Average Salary | Commission earned |
++----------------+----------------+----------------+-------------------+
+|       24000.00 |        2100.00 |    6461.682243 |              7.80 |
++----------------+----------------+----------------+-------------------+
+
+
+14.  Display the department number, total salary payout and total commission payout for each department.
+mysql> select department_id, sum(salary) as "Total Salary",sum(commission_pct) as "Commission earned" from employees group by department_id;
++---------------+--------------+-------------------+
+| department_id | Total Salary | Commission earned |
++---------------+--------------+-------------------+
+|          NULL |      7000.00 |              0.15 |
+|            10 |      4400.00 |              NULL |
+|            20 |     19000.00 |              NULL |
+|            30 |     24900.00 |              NULL |
+|            40 |      6500.00 |              NULL |
+|            50 |    156400.00 |              NULL |
+|            60 |     28800.00 |              NULL |
+|            70 |     10000.00 |              NULL |
+|            80 |    304500.00 |              7.65 |
+|            90 |     58000.00 |              NULL |
+|           100 |     51600.00 |              NULL |
+|           110 |     20300.00 |              NULL |
++---------------+--------------+-------------------+
+
+15. Display the department number and number of employees in each department. 
+mysql> select department_id ,count(employee_id) as "No of Employee" from employees group by department_id ;
++---------------+----------------+
+| department_id | No of Employee |
++---------------+----------------+
+|          NULL |              1 |
+|            10 |              1 |
+|            20 |              2 |
+|            30 |              6 |
+|            40 |              1 |
+|            50 |             45 |
+|            60 |              5 |
+|            70 |              1 |
+|            80 |             34 |
+|            90 |              3 |
+|           100 |              6 |
+|           110 |              2 |
++---------------+----------------+
+
+16. Display the department number and total salary of employees in each department.
+mysql> select department_id , sum(salary) as "Total Salary" from employees group by department_id;
++---------------+--------------+
+| department_id | Total Salary |
++---------------+--------------+
+|          NULL |      7000.00 |
+|            10 |      4400.00 |
+|            20 |     19000.00 |
+|            30 |     24900.00 |
+|            40 |      6500.00 |
+|            50 |    156400.00 |
+|            60 |     28800.00 |
+|            70 |     10000.00 |
+|            80 |    304500.00 |
+|            90 |     58000.00 |
+|           100 |     51600.00 |
+|           110 |     20300.00 |
++---------------+--------------+
+
+
+17. Display the employee's name who doesn't earn a commission. Order the result set without using the column name.
+mysql> select concat(first_name ," ", last_name) as "Employee Name" from employees where commission_pct is null;
++-------------------+
+| Employee Name     |
++-------------------+
+| Steven King       |
+| Neena Kochhar     |
+| Lex De Haan       |
+| Alexander Hunold  |
+| Bruce Ernst       |
+| David Austin      |
+| Valli Pataballa   |
+| Diana Lorentz     |
+| Nancy Greenberg   |
+| Daniel Faviet     |
+| John Chen         |
+| Ismael Sciarra    |
+| Jose Manuel Urman |
+| Luis Popp         |
+| Den Raphaely      |
+| Alexander Khoo    |
+| Shelli Baida      |
+| Sigal Tobias      |
+| Guy Himuro        |
+| Karen Colmenares  |
+| Matthew Weiss     |
+| Adam Fripp        |
+| Payam Kaufling    |
+| Shanta Vollman    |
+| Kevin Mourgos     |
+| Julia Nayer       |
+| Irene Mikkilineni |
+| James Landry      |
+| Steven Markle     |
+| Laura Bissot      |
+| Mozhe Atkinson    |
+| James Marlow      |
+| TJ Olson          |
+| Jason Mallin      |
+| Michael Rogers    |
+| Ki Gee            |
+| Hazel Philtanker  |
+| Renske Ladwig     |
+| Stephen Stiles    |
+| John Seo          |
+| Joshua Patel      |
+| Trenna Rajs       |
+| Curtis Davies     |
+| Randall Matos     |
+| Peter Vargas      |
+| Winston Taylor    |
+| Jean Fleaur       |
+| Martha Sullivan   |
+| Girard Geoni      |
+| Nandita Sarchand  |
+| Alexis Bull       |
+| Julia Dellinger   |
+| Anthony Cabrio    |
+| Kelly Chung       |
+| Jennifer Dilly    |
+| Timothy Gates     |
+| Randall Perkins   |
+| Sarah Bell        |
+| Britney Everett   |
+| Samuel McCain     |
+| Vance Jones       |
+| Alana Walsh       |
+| Kevin Feeney      |
+| Donald OConnell   |
+| Douglas Grant     |
+| Jennifer Whalen   |
+| Michael Hartstein |
+| Pat Fay           |
+| Susan Mavris      |
+| Hermann Baer      |
+| Shelley Higgins   |
+| William Gietz     |
++-------------------+
+
+
+18. Display the employees name, department id and commission. If an Employee doesn't earn the commission, then display as 'No commission'. Name the columns appropriately
+mysql> select concat(first_name," ",last_name) as "Employee Name" , department_id, case when commission_pct is null then "No commission" else commission_pct end as Commission from employees;
++-------------------+---------------+---------------+
+| Employee Name     | department_id | Commission    |
++-------------------+---------------+---------------+
+| Steven King       |            90 | No commission |
+| Neena Kochhar     |            90 | No commission |
+| Lex De Haan       |            90 | No commission |
+| Alexander Hunold  |            60 | No commission |
+| Bruce Ernst       |            60 | No commission |
+| David Austin      |            60 | No commission |
+| Valli Pataballa   |            60 | No commission |
+| Diana Lorentz     |            60 | No commission |
+| Nancy Greenberg   |           100 | No commission |
+| Daniel Faviet     |           100 | No commission |
+| John Chen         |           100 | No commission |
+| Ismael Sciarra    |           100 | No commission |
+| Jose Manuel Urman |           100 | No commission |
+| Luis Popp         |           100 | No commission |
+| Den Raphaely      |            30 | No commission |
+| Alexander Khoo    |            30 | No commission |
+| Shelli Baida      |            30 | No commission |
+| Sigal Tobias      |            30 | No commission |
+| Guy Himuro        |            30 | No commission |
+| Karen Colmenares  |            30 | No commission |
+| Matthew Weiss     |            50 | No commission |
+| Adam Fripp        |            50 | No commission |
+| Payam Kaufling    |            50 | No commission |
+| Shanta Vollman    |            50 | No commission |
+| Kevin Mourgos     |            50 | No commission |
+| Julia Nayer       |            50 | No commission |
+| Irene Mikkilineni |            50 | No commission |
+| James Landry      |            50 | No commission |
+| Steven Markle     |            50 | No commission |
+| Laura Bissot      |            50 | No commission |
+| Mozhe Atkinson    |            50 | No commission |
+| James Marlow      |            50 | No commission |
+| TJ Olson          |            50 | No commission |
+| Jason Mallin      |            50 | No commission |
+| Michael Rogers    |            50 | No commission |
+| Ki Gee            |            50 | No commission |
+| Hazel Philtanker  |            50 | No commission |
+| Renske Ladwig     |            50 | No commission |
+| Stephen Stiles    |            50 | No commission |
+| John Seo          |            50 | No commission |
+| Joshua Patel      |            50 | No commission |
+| Trenna Rajs       |            50 | No commission |
+| Curtis Davies     |            50 | No commission |
+| Randall Matos     |            50 | No commission |
+| Peter Vargas      |            50 | No commission |
+| John Russell      |            80 | 0.40          |
+| Karen Partners    |            80 | 0.30          |
+| Alberto Errazuriz |            80 | 0.30          |
+| Gerald Cambrault  |            80 | 0.30          |
+| Eleni Zlotkey     |            80 | 0.20          |
+| Peter Tucker      |            80 | 0.30          |
+| David Bernstein   |            80 | 0.25          |
+| Peter Hall        |            80 | 0.25          |
+| Christopher Olsen |            80 | 0.20          |
+| Nanette Cambrault |            80 | 0.20          |
+| Oliver Tuvault    |            80 | 0.15          |
+| Janette King      |            80 | 0.35          |
+| Patrick Sully     |            80 | 0.35          |
+| Allan McEwen      |            80 | 0.35          |
+| Lindsey Smith     |            80 | 0.30          |
+| Louise Doran      |            80 | 0.30          |
+| Sarath Sewall     |            80 | 0.25          |
+| Clara Vishney     |            80 | 0.25          |
+| Danielle Greene   |            80 | 0.15          |
+| Mattea Marvins    |            80 | 0.10          |
+| David Lee         |            80 | 0.10          |
+| Sundar Ande       |            80 | 0.10          |
+| Amit Banda        |            80 | 0.10          |
+| Lisa Ozer         |            80 | 0.25          |
+| Harrison Bloom    |            80 | 0.20          |
+| Tayler Fox        |            80 | 0.20          |
+| William Smith     |            80 | 0.15          |
+| Elizabeth Bates   |            80 | 0.15          |
+| Sundita Kumar     |            80 | 0.10          |
+| Ellen Abel        |            80 | 0.30          |
+| Alyssa Hutton     |            80 | 0.25          |
+| Jonathon Taylor   |            80 | 0.20          |
+| Jack Livingston   |            80 | 0.20          |
+| Kimberely Grant   |          NULL | 0.15          |
+| Charles Johnson   |            80 | 0.10          |
+| Winston Taylor    |            50 | No commission |
+| Jean Fleaur       |            50 | No commission |
+| Martha Sullivan   |            50 | No commission |
+| Girard Geoni      |            50 | No commission |
+| Nandita Sarchand  |            50 | No commission |
+| Alexis Bull       |            50 | No commission |
+| Julia Dellinger   |            50 | No commission |
+| Anthony Cabrio    |            50 | No commission |
+| Kelly Chung       |            50 | No commission |
+| Jennifer Dilly    |            50 | No commission |
+| Timothy Gates     |            50 | No commission |
+| Randall Perkins   |            50 | No commission |
+| Sarah Bell        |            50 | No commission |
+| Britney Everett   |            50 | No commission |
+| Samuel McCain     |            50 | No commission |
+| Vance Jones       |            50 | No commission |
+| Alana Walsh       |            50 | No commission |
+| Kevin Feeney      |            50 | No commission |
+| Donald OConnell   |            50 | No commission |
+| Douglas Grant     |            50 | No commission |
+| Jennifer Whalen   |            10 | No commission |
+| Michael Hartstein |            20 | No commission |
+| Pat Fay           |            20 | No commission |
+| Susan Mavris      |            40 | No commission |
+| Hermann Baer      |            70 | No commission |
+| Shelley Higgins   |           110 | No commission |
+| William Gietz     |           110 | No commission |
++-------------------+---------------+---------------+
+
+
+19. Display the employee's name, salary and commission multiplied by 2. If an Employee doesn't earn the commission, then display as 'No commission. Name the columns appropriately
+mysql> select concat(first_name," ",last_name) as "Employee Name" , salary , case when commission_pct is null then "No Commission" else (commission_pct*2) end as commission from employees;
++-------------------+----------+---------------+
+| Employee Name     | salary   | commission    |
++-------------------+----------+---------------+
+| Steven King       | 24000.00 | No Commission |
+| Neena Kochhar     | 17000.00 | No Commission |
+| Lex De Haan       | 17000.00 | No Commission |
+| Alexander Hunold  |  9000.00 | No Commission |
+| Bruce Ernst       |  6000.00 | No Commission |
+| David Austin      |  4800.00 | No Commission |
+| Valli Pataballa   |  4800.00 | No Commission |
+| Diana Lorentz     |  4200.00 | No Commission |
+| Nancy Greenberg   | 12000.00 | No Commission |
+| Daniel Faviet     |  9000.00 | No Commission |
+| John Chen         |  8200.00 | No Commission |
+| Ismael Sciarra    |  7700.00 | No Commission |
+| Jose Manuel Urman |  7800.00 | No Commission |
+| Luis Popp         |  6900.00 | No Commission |
+| Den Raphaely      | 11000.00 | No Commission |
+| Alexander Khoo    |  3100.00 | No Commission |
+| Shelli Baida      |  2900.00 | No Commission |
+| Sigal Tobias      |  2800.00 | No Commission |
+| Guy Himuro        |  2600.00 | No Commission |
+| Karen Colmenares  |  2500.00 | No Commission |
+| Matthew Weiss     |  8000.00 | No Commission |
+| Adam Fripp        |  8200.00 | No Commission |
+| Payam Kaufling    |  7900.00 | No Commission |
+| Shanta Vollman    |  6500.00 | No Commission |
+| Kevin Mourgos     |  5800.00 | No Commission |
+| Julia Nayer       |  3200.00 | No Commission |
+| Irene Mikkilineni |  2700.00 | No Commission |
+| James Landry      |  2400.00 | No Commission |
+| Steven Markle     |  2200.00 | No Commission |
+| Laura Bissot      |  3300.00 | No Commission |
+| Mozhe Atkinson    |  2800.00 | No Commission |
+| James Marlow      |  2500.00 | No Commission |
+| TJ Olson          |  2100.00 | No Commission |
+| Jason Mallin      |  3300.00 | No Commission |
+| Michael Rogers    |  2900.00 | No Commission |
+| Ki Gee            |  2400.00 | No Commission |
+| Hazel Philtanker  |  2200.00 | No Commission |
+| Renske Ladwig     |  3600.00 | No Commission |
+| Stephen Stiles    |  3200.00 | No Commission |
+| John Seo          |  2700.00 | No Commission |
+| Joshua Patel      |  2500.00 | No Commission |
+| Trenna Rajs       |  3500.00 | No Commission |
+| Curtis Davies     |  3100.00 | No Commission |
+| Randall Matos     |  2600.00 | No Commission |
+| Peter Vargas      |  2500.00 | No Commission |
+| John Russell      | 14000.00 | 0.80          |
+| Karen Partners    | 13500.00 | 0.60          |
+| Alberto Errazuriz | 12000.00 | 0.60          |
+| Gerald Cambrault  | 11000.00 | 0.60          |
+| Eleni Zlotkey     | 10500.00 | 0.40          |
+| Peter Tucker      | 10000.00 | 0.60          |
+| David Bernstein   |  9500.00 | 0.50          |
+| Peter Hall        |  9000.00 | 0.50          |
+| Christopher Olsen |  8000.00 | 0.40          |
+| Nanette Cambrault |  7500.00 | 0.40          |
+| Oliver Tuvault    |  7000.00 | 0.30          |
+| Janette King      | 10000.00 | 0.70          |
+| Patrick Sully     |  9500.00 | 0.70          |
+| Allan McEwen      |  9000.00 | 0.70          |
+| Lindsey Smith     |  8000.00 | 0.60          |
+| Louise Doran      |  7500.00 | 0.60          |
+| Sarath Sewall     |  7000.00 | 0.50          |
+| Clara Vishney     | 10500.00 | 0.50          |
+| Danielle Greene   |  9500.00 | 0.30          |
+| Mattea Marvins    |  7200.00 | 0.20          |
+| David Lee         |  6800.00 | 0.20          |
+| Sundar Ande       |  6400.00 | 0.20          |
+| Amit Banda        |  6200.00 | 0.20          |
+| Lisa Ozer         | 11500.00 | 0.50          |
+| Harrison Bloom    | 10000.00 | 0.40          |
+| Tayler Fox        |  9600.00 | 0.40          |
+| William Smith     |  7400.00 | 0.30          |
+| Elizabeth Bates   |  7300.00 | 0.30          |
+| Sundita Kumar     |  6100.00 | 0.20          |
+| Ellen Abel        | 11000.00 | 0.60          |
+| Alyssa Hutton     |  8800.00 | 0.50          |
+| Jonathon Taylor   |  8600.00 | 0.40          |
+| Jack Livingston   |  8400.00 | 0.40          |
+| Kimberely Grant   |  7000.00 | 0.30          |
+| Charles Johnson   |  6200.00 | 0.20          |
+| Winston Taylor    |  3200.00 | No Commission |
+| Jean Fleaur       |  3100.00 | No Commission |
+| Martha Sullivan   |  2500.00 | No Commission |
+| Girard Geoni      |  2800.00 | No Commission |
+| Nandita Sarchand  |  4200.00 | No Commission |
+| Alexis Bull       |  4100.00 | No Commission |
+| Julia Dellinger   |  3400.00 | No Commission |
+| Anthony Cabrio    |  3000.00 | No Commission |
+| Kelly Chung       |  3800.00 | No Commission |
+| Jennifer Dilly    |  3600.00 | No Commission |
+| Timothy Gates     |  2900.00 | No Commission |
+| Randall Perkins   |  2500.00 | No Commission |
+| Sarah Bell        |  4000.00 | No Commission |
+| Britney Everett   |  3900.00 | No Commission |
+| Samuel McCain     |  3200.00 | No Commission |
+| Vance Jones       |  2800.00 | No Commission |
+| Alana Walsh       |  3100.00 | No Commission |
+| Kevin Feeney      |  3000.00 | No Commission |
+| Donald OConnell   |  2600.00 | No Commission |
+| Douglas Grant     |  2600.00 | No Commission |
+| Jennifer Whalen   |  4400.00 | No Commission |
+| Michael Hartstein | 13000.00 | No Commission |
+| Pat Fay           |  6000.00 | No Commission |
+| Susan Mavris      |  6500.00 | No Commission |
+| Hermann Baer      | 10000.00 | No Commission |
+| Shelley Higgins   | 12000.00 | No Commission |
+| William Gietz     |  8300.00 | No Commission |
++-------------------+----------+---------------+
+
+
+20.  Display the employee's name, department id who have the first name same as another employee in the same department.
+mysql> select concat(e1.first_name," ",e1.last_name) as "Employee Name" ,e1.department_id from employees as e1, employees as e2 where e1.first_name = e2.first_name and e1.employee_id<>e2.employee_id and e1.department_id = e2.department_id;
++-----------------+---------------+
+| Employee Name   | department_id |
++-----------------+---------------+
+| Kevin Mourgos   |            50 |
+| Julia Nayer     |            50 |
+| James Landry    |            50 |
+| James Marlow    |            50 |
+| Randall Matos   |            50 |
+| Peter Tucker    |            80 |
+| David Bernstein |            80 |
+| Peter Hall      |            80 |
+| David Lee       |            80 |
+| Julia Dellinger |            50 |
+| Randall Perkins |            50 |
+| Kevin Feeney    |            50 |
++-----------------+---------------+
+
+
+21. Display the sum of salaries of the employees working under each Manager.
+mysql> select sum(salary) as "Salary" from employees where manager_id is not null;
++-----------+
+| Salary    |
++-----------+
+| 667400.00 |
++-----------+
+
+
+22. Select the Managers name, the count of employees working under and the department ID of the manager. 
+mysql> select e1.first_name as Manager_name , count(e1.first_name) as "No of employees working under" ,e1.department_id from employees as e1 , employees as e2 where e1.employee_id = e2.manager_id group by e1.first_name , e1.department_id;
++--------------+-------------------------------+---------------+
+| Manager_name | No of employees working under | department_id |
++--------------+-------------------------------+---------------+
+| Steven       |                            14 |            90 |
+| Neena        |                             5 |            90 |
+| Lex          |                             1 |            90 |
+| Alexander    |                             4 |            60 |
+| Nancy        |                             5 |           100 |
+| Den          |                             5 |            30 |
+| Matthew      |                             8 |            50 |
+| Adam         |                             8 |            50 |
+| Payam        |                             8 |            50 |
+| Shanta       |                             8 |            50 |
+| Kevin        |                             8 |            50 |
+| John         |                             6 |            80 |
+| Karen        |                             6 |            80 |
+| Alberto      |                             6 |            80 |
+| Gerald       |                             6 |            80 |
+| Eleni        |                             6 |            80 |
+| Michael      |                             1 |            20 |
+| Shelley      |                             1 |           110 |
++--------------+-------------------------------+---------------+
+
+
+23. Select the employee name, department id, and the salary. Group the result with the manager name and the employee last name should have second letter 'a!
+mysql> select first_name,last_name ,department_id,salary from employees where first_name like "_a%" and last_name like "_a%" and employee_id in (select manager_id from employees);
++------------+-----------+---------------+----------+
+| first_name | last_name | department_id | salary   |
++------------+-----------+---------------+----------+
+| Payam      | Kaufling  |            50 |  7900.00 |
+| Karen      | Partners  |            80 | 13500.00 |
++------------+-----------+---------------+----------+
+
+24.  Display the average of sum of the salaries and group the result with the department id. Order the result with the department id.
+mysql> select avg(salary) as "Average Salary",department_id from employees group by department_id ;
++----------------+---------------+
+| Average Salary | department_id |
++----------------+---------------+
+|    7000.000000 |          NULL |
+|    4400.000000 |            10 |
+|    9500.000000 |            20 |
+|    4150.000000 |            30 |
+|    6500.000000 |            40 |
+|    3475.555556 |            50 |
+|    5760.000000 |            60 |
+|   10000.000000 |            70 |
+|    8955.882353 |            80 |
+|   19333.333333 |            90 |
+|    8600.000000 |           100 |
+|   10150.000000 |           110 |
++----------------+---------------+
+
+
+25.  Select the maximum salary of each department along with the department id.
+mysql> select max(salary) as "Maximum Salary ",department_name,employees.department_id from employees, departments where employees.department_id = departments.department_id group by department_name,department_id;
++-----------------+------------------+---------------+
+| Maximum Salary  | department_name  | department_id |
++-----------------+------------------+---------------+
+|        24000.00 | Executive        |            90 |
+|         9000.00 | IT               |            60 |
+|        12000.00 | Finance          |           100 |
+|        11000.00 | Purchasing       |            30 |
+|         8200.00 | Shipping         |            50 |
+|        14000.00 | Sales            |            80 |
+|         4400.00 | Administration   |            10 |
+|        13000.00 | Marketing        |            20 |
+|         6500.00 | Human Resources  |            40 |
+|        10000.00 | Public Relations |            70 |
+|        12000.00 | Accounting       |           110 |
++-----------------+------------------+---------------+
+
+
+26.  Display the commission, if not null display 10% of salary, if null display a default value 1.
+mysql> select case when (commission_pct is null) then "1" else (salary*0.1) end as commission from employees;
++-----------+
+| commission |
++-----------+
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1400.000  |
+| 1350.000  |
+| 1200.000  |
+| 1100.000  |
+| 1050.000  |
+| 1000.000  |
+| 950.000   |
+| 900.000   |
+| 800.000   |
+| 750.000   |
+| 700.000   |
+| 1000.000  |
+| 950.000   |
+| 900.000   |
+| 800.000   |
+| 750.000   |
+| 700.000   |
+| 1050.000  |
+| 950.000   |
+| 720.000   |
+| 680.000   |
+| 640.000   |
+| 620.000   |
+| 1150.000  |
+| 1000.000  |
+| 960.000   |
+| 740.000   |
+| 730.000   |
+| 610.000   |
+| 1100.000  |
+| 880.000   |
+| 860.000   |
+| 840.000   |
+| 700.000   |
+| 620.000   |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
+| 1         |
++-----------+
+
+27. Write a query that displays the employee's last names only from the string's 2-5th position with the first letter capitalized and all other letters lowercase, Give each column an appropriate label.
+mysql> select concat(upper(left(substring(last_name,2),1)),lower((substring(last_name,3,3)))) as Name from employees;
++------+
+| Name |
++------+
+| Ing  |
+| Ochh |
+| E ha |
+| Unol |
+| Rnst |
+| Usti |
+| Atab |
+| Oren |
+| Reen |
+| Avie |
+| Hen  |
+| Ciar |
+| Rman |
+| Opp  |
+| Apha |
+| Hoo  |
+| Aida |
+| Obia |
+| Imur |
+| Olme |
+| Eiss |
+| Ripp |
+| Aufl |
+| Ollm |
+| Ourg |
+| Ayer |
+| Ikki |
+| Andr |
+| Arkl |
+| Isso |
+| Tkin |
+| Arlo |
+| Lson |
+| Alli |
+| Oger |
+| Ee   |
+| Hilt |
+| Adwi |
+| Tile |
+| Eo   |
+| Atel |
+| Ajs  |
+| Avie |
+| Atos |
+| Arga |
+| Usse |
+| Artn |
+| Rraz |
+| Ambr |
+| Lotk |
+| Ucke |
+| Erns |
+| All  |
+| Lsen |
+| Ambr |
+| Uvau |
+| Ing  |
+| Ully |
+| Cewe |
+| Mith |
+| Oran |
+| Ewal |
+| Ishn |
+| Reen |
+| Arvi |
+| Ee   |
+| Nde  |
+| Anda |
+| Zer  |
+| Loom |
+| Ox   |
+| Mith |
+| Ates |
+| Umar |
+| Bel  |
+| Utto |
+| Aylo |
+| Ivin |
+| Rant |
+| Ohns |
+| Aylo |
+| Leau |
+| Ulli |
+| Eoni |
+| Arch |
+| Ull  |
+| Elli |
+| Abri |
+| Hung |
+| Illy |
+| Ates |
+| Erki |
+| Ell  |
+| Vere |
+| Ccai |
+| Ones |
+| Alsh |
+| Eene |
+| Conn |
+| Rant |
+| Hale |
+| Arts |
+| Ay   |
+| Avri |
+| Aer  |
+| Iggi |
+| Ietz |
++------+
+
+
+28. Write a query that displays the employee's first name and last name along with a " in between for e.g.: first name : Ram; last name : Kumar then Ram-Kumar. Also displays the month on which the employee has joined
+mysql> select first_name,last_name from employees where first_name like "_%a%_" and last_name like "_%a%_";
++-------------+------------+
+| first_name  | last_name  |
++-------------+------------+
+| Valli       | Pataballa  |
+| Daniel      | Faviet     |
+| Ismael      | Sciarra    |
+| Jose Manuel | Urman      |
+| Sigal       | Tobias     |
+| Karen       | Colmenares |
+| Payam       | Kaufling   |
+| Shanta      | Vollman    |
+| James       | Landry     |
+| James       | Marlow     |
+| Jason       | Mallin     |
+| Hazel       | Philtanker |
+| Randall     | Matos      |
+| Karen       | Partners   |
+| Gerald      | Cambrault  |
+| Nanette     | Cambrault  |
+| Sarath      | Sewall     |
+| Mattea      | Marvins    |
+| Elizabeth   | Bates      |
+| Jonathon    | Taylor     |
+| Jean        | Fleaur     |
+| Martha      | Sullivan   |
+| Nandita     | Sarchand   |
+| Samuel      | McCain     |
+| Alana       | Walsh      |
+| Douglas     | Grant      |
+| Michael     | Hartstein  |
+| Pat         | Fay        |
+| Susan       | Mavris     |
+| Hermann     | Baer       |
++-------------+------------+
+
+
+29. Write a query to display the employee's last name and if half of the salary is greater than ten thousand then increase the salary by 10% else by 11.5% along with the bonus amount of 1500 each. Provide each column an appropriate label.
+mysql> select last_name , case when(salary/(2) >10000 ) then (salary*(1.1) + 1500) else (salary*(1.115) + 1500) end as Salary from employees;
++-------------+-------------+
+| last_name   | Salary      |
++-------------+-------------+
+| King        |   27900.000 |
+| Kochhar     | 20455.00000 |
+| De Haan     | 20455.00000 |
+| Hunold      | 11535.00000 |
+| Ernst       |  8190.00000 |
+| Austin      |  6852.00000 |
+| Pataballa   |  6852.00000 |
+| Lorentz     |  6183.00000 |
+| Greenberg   | 14880.00000 |
+| Faviet      | 11535.00000 |
+| Chen        | 10643.00000 |
+| Sciarra     | 10085.50000 |
+| Urman       | 10197.00000 |
+| Popp        |  9193.50000 |
+| Raphaely    | 13765.00000 |
+| Khoo        |  4956.50000 |
+| Baida       |  4733.50000 |
+| Tobias      |  4622.00000 |
+| Himuro      |  4399.00000 |
+| Colmenares  |  4287.50000 |
+| Weiss       | 10420.00000 |
+| Fripp       | 10643.00000 |
+| Kaufling    | 10308.50000 |
+| Vollman     |  8747.50000 |
+| Mourgos     |  7967.00000 |
+| Nayer       |  5068.00000 |
+| Mikkilineni |  4510.50000 |
+| Landry      |  4176.00000 |
+| Markle      |  3953.00000 |
+| Bissot      |  5179.50000 |
+| Atkinson    |  4622.00000 |
+| Marlow      |  4287.50000 |
+| Olson       |  3841.50000 |
+| Mallin      |  5179.50000 |
+| Rogers      |  4733.50000 |
+| Gee         |  4176.00000 |
+| Philtanker  |  3953.00000 |
+| Ladwig      |  5514.00000 |
+| Stiles      |  5068.00000 |
+| Seo         |  4510.50000 |
+| Patel       |  4287.50000 |
+| Rajs        |  5402.50000 |
+| Davies      |  4956.50000 |
+| Matos       |  4399.00000 |
+| Vargas      |  4287.50000 |
+| Russell     | 17110.00000 |
+| Partners    | 16552.50000 |
+| Errazuriz   | 14880.00000 |
+| Cambrault   | 13765.00000 |
+| Zlotkey     | 13207.50000 |
+| Tucker      | 12650.00000 |
+| Bernstein   | 12092.50000 |
+| Hall        | 11535.00000 |
+| Olsen       | 10420.00000 |
+| Cambrault   |  9862.50000 |
+| Tuvault     |  9305.00000 |
+| King        | 12650.00000 |
+| Sully       | 12092.50000 |
+| McEwen      | 11535.00000 |
+| Smith       | 10420.00000 |
+| Doran       |  9862.50000 |
+| Sewall      |  9305.00000 |
+| Vishney     | 13207.50000 |
+| Greene      | 12092.50000 |
+| Marvins     |  9528.00000 |
+| Lee         |  9082.00000 |
+| Ande        |  8636.00000 |
+| Banda       |  8413.00000 |
+| Ozer        | 14322.50000 |
+| Bloom       | 12650.00000 |
+| Fox         | 12204.00000 |
+| Smith       |  9751.00000 |
+| Bates       |  9639.50000 |
+| Kumar       |  8301.50000 |
+| Abel        | 13765.00000 |
+| Hutton      | 11312.00000 |
+| Taylor      | 11089.00000 |
+| Livingston  | 10866.00000 |
+| Grant       |  9305.00000 |
+| Johnson     |  8413.00000 |
+| Taylor      |  5068.00000 |
+| Fleaur      |  4956.50000 |
+| Sullivan    |  4287.50000 |
+| Geoni       |  4622.00000 |
+| Sarchand    |  6183.00000 |
+| Bull        |  6071.50000 |
+| Dellinger   |  5291.00000 |
+| Cabrio      |  4845.00000 |
+| Chung       |  5737.00000 |
+| Dilly       |  5514.00000 |
+| Gates       |  4733.50000 |
+| Perkins     |  4287.50000 |
+| Bell        |  5960.00000 |
+| Everett     |  5848.50000 |
+| McCain      |  5068.00000 |
+| Jones       |  4622.00000 |
+| Walsh       |  4956.50000 |
+| Feeney      |  4845.00000 |
+| OConnell    |  4399.00000 |
+| Grant       |  4399.00000 |
+| Whalen      |  6406.00000 |
+| Hartstein   | 15995.00000 |
+| Fay         |  8190.00000 |
+| Mavris      |  8747.50000 |
+| Baer        | 12650.00000 |
+| Higgins     | 14880.00000 |
+| Gietz       | 10754.50000 |
++-------------+-------------+
+
+30. Display the employee ID by Appending two zeros after 2nd digit and 'E' in the end, department id, salary and the manager name all in Upper case, if the Manager name consists of 'z' replace it with '$!
+mysql>  select concat(substring(employee_id,1,2),"00",right(employee_id,1),"E") as Employee_id ,upper(replace(first_name,"z","$")) as Manager_Name,salary,department_id from employees where employee_id in (select manager_id from employees);
++-------------+--------------+----------+---------------+
+| Employee_id | Manager_Name | salary   | department_id |
++-------------+--------------+----------+---------------+
+| 10000E      | STEVEN       | 24000.00 |            90 |
+| 10001E      | NEENA        | 17000.00 |            90 |
+| 10002E      | LEX          | 17000.00 |            90 |
+| 10003E      | ALEXANDER    |  9000.00 |            60 |
+| 10008E      | NANCY        | 12000.00 |           100 |
+| 11004E      | DEN          | 11000.00 |            30 |
+| 12000E      | MATTHEW      |  8000.00 |            50 |
+| 12001E      | ADAM         |  8200.00 |            50 |
+| 12002E      | PAYAM        |  7900.00 |            50 |
+| 12003E      | SHANTA       |  6500.00 |            50 |
+| 12004E      | KEVIN        |  5800.00 |            50 |
+| 14005E      | JOHN         | 14000.00 |            80 |
+| 14006E      | KAREN        | 13500.00 |            80 |
+| 14007E      | ALBERTO      | 12000.00 |            80 |
+| 14008E      | GERALD       | 11000.00 |            80 |
+| 14009E      | ELENI        | 10500.00 |            80 |
+| 20001E      | MICHAEL      | 13000.00 |            20 |
+| 20005E      | SHELLEY      | 12000.00 |           110 |
++-------------+--------------+----------+---------------+
+
+
+31. Write a query that displays the employee's last names with the first letter capitalized and all other letters lowercase, and the length of the names, for all employees whose name starts with J, A, or M. Give each column an appropriate label. Sort the results by the employees' last names 
+mysql> select concat(upper(left(last_name,1)), lower(substring(last_name,2,length(last_name)-1))) as Name, length(last_name) as Length from employees where last_name like "j%" or last_name like "a%" or last_name like "m%" order by last_name;
++-------------+--------+
+| Name        | Length |
++-------------+--------+
+| Abel        |      4 |
+| Ande        |      4 |
+| Atkinson    |      8 |
+| Austin      |      6 |
+| Johnson     |      7 |
+| Jones       |      5 |
+| Mallin      |      6 |
+| Markle      |      6 |
+| Marlow      |      6 |
+| Marvins     |      7 |
+| Matos       |      5 |
+| Mavris      |      6 |
+| Mccain      |      6 |
+| Mcewen      |      6 |
+| Mikkilineni |     11 |
+| Mourgos     |      7 |
++-------------+--------+
+
+
+32. Create a query to display the last name and salary for all employees. Format the salary to be 15 characters long, left-padded with $. Label the column SALARY
+mysql> select last_name , lpad(salary,15,"$") as Salary from employees;
++-------------+-----------------+
+| last_name   | Salary          |
++-------------+-----------------+
+| King        | $$$$$$$24000.00 |
+| Kochhar     | $$$$$$$17000.00 |
+| De Haan     | $$$$$$$17000.00 |
+| Hunold      | $$$$$$$$9000.00 |
+| Ernst       | $$$$$$$$6000.00 |
+| Austin      | $$$$$$$$4800.00 |
+| Pataballa   | $$$$$$$$4800.00 |
+| Lorentz     | $$$$$$$$4200.00 |
+| Greenberg   | $$$$$$$12000.00 |
+| Faviet      | $$$$$$$$9000.00 |
+| Chen        | $$$$$$$$8200.00 |
+| Sciarra     | $$$$$$$$7700.00 |
+| Urman       | $$$$$$$$7800.00 |
+| Popp        | $$$$$$$$6900.00 |
+| Raphaely    | $$$$$$$11000.00 |
+| Khoo        | $$$$$$$$3100.00 |
+| Baida       | $$$$$$$$2900.00 |
+| Tobias      | $$$$$$$$2800.00 |
+| Himuro      | $$$$$$$$2600.00 |
+| Colmenares  | $$$$$$$$2500.00 |
+| Weiss       | $$$$$$$$8000.00 |
+| Fripp       | $$$$$$$$8200.00 |
+| Kaufling    | $$$$$$$$7900.00 |
+| Vollman     | $$$$$$$$6500.00 |
+| Mourgos     | $$$$$$$$5800.00 |
+| Nayer       | $$$$$$$$3200.00 |
+| Mikkilineni | $$$$$$$$2700.00 |
+| Landry      | $$$$$$$$2400.00 |
+| Markle      | $$$$$$$$2200.00 |
+| Bissot      | $$$$$$$$3300.00 |
+| Atkinson    | $$$$$$$$2800.00 |
+| Marlow      | $$$$$$$$2500.00 |
+| Olson       | $$$$$$$$2100.00 |
+| Mallin      | $$$$$$$$3300.00 |
+| Rogers      | $$$$$$$$2900.00 |
+| Gee         | $$$$$$$$2400.00 |
+| Philtanker  | $$$$$$$$2200.00 |
+| Ladwig      | $$$$$$$$3600.00 |
+| Stiles      | $$$$$$$$3200.00 |
+| Seo         | $$$$$$$$2700.00 |
+| Patel       | $$$$$$$$2500.00 |
+| Rajs        | $$$$$$$$3500.00 |
+| Davies      | $$$$$$$$3100.00 |
+| Matos       | $$$$$$$$2600.00 |
+| Vargas      | $$$$$$$$2500.00 |
+| Russell     | $$$$$$$14000.00 |
+| Partners    | $$$$$$$13500.00 |
+| Errazuriz   | $$$$$$$12000.00 |
+| Cambrault   | $$$$$$$11000.00 |
+| Zlotkey     | $$$$$$$10500.00 |
+| Tucker      | $$$$$$$10000.00 |
+| Bernstein   | $$$$$$$$9500.00 |
+| Hall        | $$$$$$$$9000.00 |
+| Olsen       | $$$$$$$$8000.00 |
+| Cambrault   | $$$$$$$$7500.00 |
+| Tuvault     | $$$$$$$$7000.00 |
+| King        | $$$$$$$10000.00 |
+| Sully       | $$$$$$$$9500.00 |
+| McEwen      | $$$$$$$$9000.00 |
+| Smith       | $$$$$$$$8000.00 |
+| Doran       | $$$$$$$$7500.00 |
+| Sewall      | $$$$$$$$7000.00 |
+| Vishney     | $$$$$$$10500.00 |
+| Greene      | $$$$$$$$9500.00 |
+| Marvins     | $$$$$$$$7200.00 |
+| Lee         | $$$$$$$$6800.00 |
+| Ande        | $$$$$$$$6400.00 |
+| Banda       | $$$$$$$$6200.00 |
+| Ozer        | $$$$$$$11500.00 |
+| Bloom       | $$$$$$$10000.00 |
+| Fox         | $$$$$$$$9600.00 |
+| Smith       | $$$$$$$$7400.00 |
+| Bates       | $$$$$$$$7300.00 |
+| Kumar       | $$$$$$$$6100.00 |
+| Abel        | $$$$$$$11000.00 |
+| Hutton      | $$$$$$$$8800.00 |
+| Taylor      | $$$$$$$$8600.00 |
+| Livingston  | $$$$$$$$8400.00 |
+| Grant       | $$$$$$$$7000.00 |
+| Johnson     | $$$$$$$$6200.00 |
+| Taylor      | $$$$$$$$3200.00 |
+| Fleaur      | $$$$$$$$3100.00 |
+| Sullivan    | $$$$$$$$2500.00 |
+| Geoni       | $$$$$$$$2800.00 |
+| Sarchand    | $$$$$$$$4200.00 |
+| Bull        | $$$$$$$$4100.00 |
+| Dellinger   | $$$$$$$$3400.00 |
+| Cabrio      | $$$$$$$$3000.00 |
+| Chung       | $$$$$$$$3800.00 |
+| Dilly       | $$$$$$$$3600.00 |
+| Gates       | $$$$$$$$2900.00 |
+| Perkins     | $$$$$$$$2500.00 |
+| Bell        | $$$$$$$$4000.00 |
+| Everett     | $$$$$$$$3900.00 |
+| McCain      | $$$$$$$$3200.00 |
+| Jones       | $$$$$$$$2800.00 |
+| Walsh       | $$$$$$$$3100.00 |
+| Feeney      | $$$$$$$$3000.00 |
+| OConnell    | $$$$$$$$2600.00 |
+| Grant       | $$$$$$$$2600.00 |
+| Whalen      | $$$$$$$$4400.00 |
+| Hartstein   | $$$$$$$13000.00 |
+| Fay         | $$$$$$$$6000.00 |
+| Mavris      | $$$$$$$$6500.00 |
+| Baer        | $$$$$$$10000.00 |
+| Higgins     | $$$$$$$12000.00 |
+| Gietz       | $$$$$$$$8300.00 |
++-------------+-----------------+
+
+
+33.  Display the employee's name if it is a palindrome.
+mysql> select first_name from employees where first_name = reverse(first_name);
+Empty set (0.00 sec)
+
+
+34. Display First names of all employees with initcaps.
+mysql> select concat (upper(left(first_name,1)),lower(substring(first_name,2,length(first_name)-1))) as "Name" from employees;
++-------------+
+| Name        |
++-------------+
+| Steven      |
+| Neena       |
+| Lex         |
+| Alexander   |
+| Bruce       |
+| David       |
+| Valli       |
+| Diana       |
+| Nancy       |
+| Daniel      |
+| John        |
+| Ismael      |
+| Jose manuel |
+| Luis        |
+| Den         |
+| Alexander   |
+| Shelli      |
+| Sigal       |
+| Guy         |
+| Karen       |
+| Matthew     |
+| Adam        |
+| Payam       |
+| Shanta      |
+| Kevin       |
+| Julia       |
+| Irene       |
+| James       |
+| Steven      |
+| Laura       |
+| Mozhe       |
+| James       |
+| Tj          |
+| Jason       |
+| Michael     |
+| Ki          |
+| Hazel       |
+| Renske      |
+| Stephen     |
+| John        |
+| Joshua      |
+| Trenna      |
+| Curtis      |
+| Randall     |
+| Peter       |
+| John        |
+| Karen       |
+| Alberto     |
+| Gerald      |
+| Eleni       |
+| Peter       |
+| David       |
+| Peter       |
+| Christopher |
+| Nanette     |
+| Oliver      |
+| Janette     |
+| Patrick     |
+| Allan       |
+| Lindsey     |
+| Louise      |
+| Sarath      |
+| Clara       |
+| Danielle    |
+| Mattea      |
+| David       |
+| Sundar      |
+| Amit        |
+| Lisa        |
+| Harrison    |
+| Tayler      |
+| William     |
+| Elizabeth   |
+| Sundita     |
+| Ellen       |
+| Alyssa      |
+| Jonathon    |
+| Jack        |
+| Kimberely   |
+| Charles     |
+| Winston     |
+| Jean        |
+| Martha      |
+| Girard      |
+| Nandita     |
+| Alexis      |
+| Julia       |
+| Anthony     |
+| Kelly       |
+| Jennifer    |
+| Timothy     |
+| Randall     |
+| Sarah       |
+| Britney     |
+| Samuel      |
+| Vance       |
+| Alana       |
+| Kevin       |
+| Donald      |
+| Douglas     |
+| Jennifer    |
+| Michael     |
+| Pat         |
+| Susan       |
+| Hermann     |
+| Shelley     |
+| William     |
++-------------+
+
+
+35. From LOCATIONS table, extract the word between first and second space from the STREET ADDRESS column.
+mysql> select substring_index(substring_index(street_address, " ", 2)," ",-1) as Address from locations;
++----------------+
+| Address        |
++----------------+
+| Via            |
+| Calle          |
+| Shinjuku-ku    |
+| Kamiya-cho     |
+| Jabberwocky    |
+| Interiors      |
+| Zagora         |
+| Charade        |
+| Spadina        |
+| Boxwood        |
+| Laogianggen    |
+| Vileparle      |
+| Victoria       |
+| Clementi       |
+| Arthur         |
+| Centre,        |
+| Chester        |
+| 7031           |
+| Frei           |
+| Rue            |
+| 921            |
+| Breughelstraat |
+| Escobedo       |
++----------------+
+
+ 
+36. Extract first letter from First Name column and append it with the Last Name. Also add "@systechusa.com" at the end. Name the column as e-mail address. All characters should be in lower case. Display this along with their First Name.
+mysql> select first_name as Employee_Name, concat(lower(left(first_name,1)),lower(last_name),"@systechusa.com") as "e-mail address" from employees;
++---------------+-----------------------------+
+| Employee_Name | e-mail address              |
++---------------+-----------------------------+
+| Steven        | sking@systechusa.com        |
+| Neena         | nkochhar@systechusa.com     |
+| Lex           | lde haan@systechusa.com     |
+| Alexander     | ahunold@systechusa.com      |
+| Bruce         | bernst@systechusa.com       |
+| David         | daustin@systechusa.com      |
+| Valli         | vpataballa@systechusa.com   |
+| Diana         | dlorentz@systechusa.com     |
+| Nancy         | ngreenberg@systechusa.com   |
+| Daniel        | dfaviet@systechusa.com      |
+| John          | jchen@systechusa.com        |
+| Ismael        | isciarra@systechusa.com     |
+| Jose Manuel   | jurman@systechusa.com       |
+| Luis          | lpopp@systechusa.com        |
+| Den           | draphaely@systechusa.com    |
+| Alexander     | akhoo@systechusa.com        |
+| Shelli        | sbaida@systechusa.com       |
+| Sigal         | stobias@systechusa.com      |
+| Guy           | ghimuro@systechusa.com      |
+| Karen         | kcolmenares@systechusa.com  |
+| Matthew       | mweiss@systechusa.com       |
+| Adam          | afripp@systechusa.com       |
+| Payam         | pkaufling@systechusa.com    |
+| Shanta        | svollman@systechusa.com     |
+| Kevin         | kmourgos@systechusa.com     |
+| Julia         | jnayer@systechusa.com       |
+| Irene         | imikkilineni@systechusa.com |
+| James         | jlandry@systechusa.com      |
+| Steven        | smarkle@systechusa.com      |
+| Laura         | lbissot@systechusa.com      |
+| Mozhe         | matkinson@systechusa.com    |
+| James         | jmarlow@systechusa.com      |
+| TJ            | tolson@systechusa.com       |
+| Jason         | jmallin@systechusa.com      |
+| Michael       | mrogers@systechusa.com      |
+| Ki            | kgee@systechusa.com         |
+| Hazel         | hphiltanker@systechusa.com  |
+| Renske        | rladwig@systechusa.com      |
+| Stephen       | sstiles@systechusa.com      |
+| John          | jseo@systechusa.com         |
+| Joshua        | jpatel@systechusa.com       |
+| Trenna        | trajs@systechusa.com        |
+| Curtis        | cdavies@systechusa.com      |
+| Randall       | rmatos@systechusa.com       |
+| Peter         | pvargas@systechusa.com      |
+| John          | jrussell@systechusa.com     |
+| Karen         | kpartners@systechusa.com    |
+| Alberto       | aerrazuriz@systechusa.com   |
+| Gerald        | gcambrault@systechusa.com   |
+| Eleni         | ezlotkey@systechusa.com     |
+| Peter         | ptucker@systechusa.com      |
+| David         | dbernstein@systechusa.com   |
+| Peter         | phall@systechusa.com        |
+| Christopher   | colsen@systechusa.com       |
+| Nanette       | ncambrault@systechusa.com   |
+| Oliver        | otuvault@systechusa.com     |
+| Janette       | jking@systechusa.com        |
+| Patrick       | psully@systechusa.com       |
+| Allan         | amcewen@systechusa.com      |
+| Lindsey       | lsmith@systechusa.com       |
+| Louise        | ldoran@systechusa.com       |
+| Sarath        | ssewall@systechusa.com      |
+| Clara         | cvishney@systechusa.com     |
+| Danielle      | dgreene@systechusa.com      |
+| Mattea        | mmarvins@systechusa.com     |
+| David         | dlee@systechusa.com         |
+| Sundar        | sande@systechusa.com        |
+| Amit          | abanda@systechusa.com       |
+| Lisa          | lozer@systechusa.com        |
+| Harrison      | hbloom@systechusa.com       |
+| Tayler        | tfox@systechusa.com         |
+| William       | wsmith@systechusa.com       |
+| Elizabeth     | ebates@systechusa.com       |
+| Sundita       | skumar@systechusa.com       |
+| Ellen         | eabel@systechusa.com        |
+| Alyssa        | ahutton@systechusa.com      |
+| Jonathon      | jtaylor@systechusa.com      |
+| Jack          | jlivingston@systechusa.com  |
+| Kimberely     | kgrant@systechusa.com       |
+| Charles       | cjohnson@systechusa.com     |
+| Winston       | wtaylor@systechusa.com      |
+| Jean          | jfleaur@systechusa.com      |
+| Martha        | msullivan@systechusa.com    |
+| Girard        | ggeoni@systechusa.com       |
+| Nandita       | nsarchand@systechusa.com    |
+| Alexis        | abull@systechusa.com        |
+| Julia         | jdellinger@systechusa.com   |
+| Anthony       | acabrio@systechusa.com      |
+| Kelly         | kchung@systechusa.com       |
+| Jennifer      | jdilly@systechusa.com       |
+| Timothy       | tgates@systechusa.com       |
+| Randall       | rperkins@systechusa.com     |
+| Sarah         | sbell@systechusa.com        |
+| Britney       | beverett@systechusa.com     |
+| Samuel        | smccain@systechusa.com      |
+| Vance         | vjones@systechusa.com       |
+| Alana         | awalsh@systechusa.com       |
+| Kevin         | kfeeney@systechusa.com      |
+| Donald        | doconnell@systechusa.com    |
+| Douglas       | dgrant@systechusa.com       |
+| Jennifer      | jwhalen@systechusa.com      |
+| Michael       | mhartstein@systechusa.com   |
+| Pat           | pfay@systechusa.com         |
+| Susan         | smavris@systechusa.com      |
+| Hermann       | hbaer@systechusa.com        |
+| Shelley       | shiggins@systechusa.com     |
+| William       | wgietz@systechusa.com       |
++---------------+-----------------------------+
+
+
+37.  Display the names and job titles of all employees with the same job as Trenna. 
+mysql> select first_name , job_title from employees inner join jobs on employees.job_id = jobs.job_id where job_title = 'stock clerk';
++------------+-------------+
+| first_name | job_title   |
++------------+-------------+
+| Julia      | Stock Clerk |
+| Irene      | Stock Clerk |
+| James      | Stock Clerk |
+| Steven     | Stock Clerk |
+| Laura      | Stock Clerk |
+| Mozhe      | Stock Clerk |
+| James      | Stock Clerk |
+| TJ         | Stock Clerk |
+| Jason      | Stock Clerk |
+| Michael    | Stock Clerk |
+| Ki         | Stock Clerk |
+| Hazel      | Stock Clerk |
+| Renske     | Stock Clerk |
+| Stephen    | Stock Clerk |
+| John       | Stock Clerk |
+| Joshua     | Stock Clerk |
+| Trenna     | Stock Clerk |
+| Curtis     | Stock Clerk |
+| Randall    | Stock Clerk |
+| Peter      | Stock Clerk |
++------------+-------------+
+
+
+38. . Display the names and department name of all employees working in the same city as Trenna.
+mysql> select first_name,department_name from employees  inner join departments on employees.department_id = departments.department_id  inner join locations on  departments.location_id = locations.location_id where city = "South San Francisco";
++------------+-----------------+
+| first_name | department_name |
++------------+-----------------+
+| Matthew    | Shipping        |
+| Adam       | Shipping        |
+| Payam      | Shipping        |
+| Shanta     | Shipping        |
+| Kevin      | Shipping        |
+| Julia      | Shipping        |
+| Irene      | Shipping        |
+| James      | Shipping        |
+| Steven     | Shipping        |
+| Laura      | Shipping        |
+| Mozhe      | Shipping        |
+| James      | Shipping        |
+| TJ         | Shipping        |
+| Jason      | Shipping        |
+| Michael    | Shipping        |
+| Ki         | Shipping        |
+| Hazel      | Shipping        |
+| Renske     | Shipping        |
+| Stephen    | Shipping        |
+| John       | Shipping        |
+| Joshua     | Shipping        |
+| Trenna     | Shipping        |
+| Curtis     | Shipping        |
+| Randall    | Shipping        |
+| Peter      | Shipping        |
+| Winston    | Shipping        |
+| Jean       | Shipping        |
+| Martha     | Shipping        |
+| Girard     | Shipping        |
+| Nandita    | Shipping        |
+| Alexis     | Shipping        |
+| Julia      | Shipping        |
+| Anthony    | Shipping        |
+| Kelly      | Shipping        |
+| Jennifer   | Shipping        |
+| Timothy    | Shipping        |
+| Randall    | Shipping        |
+| Sarah      | Shipping        |
+| Britney    | Shipping        |
+| Samuel     | Shipping        |
+| Vance      | Shipping        |
+| Alana      | Shipping        |
+| Kevin      | Shipping        |
+| Donald     | Shipping        |
+| Douglas    | Shipping        |
++------------+-----------------+
+
+
+39. Display the name of the employee whose salary is the lowest.
+mysql> select concat(first_name ," " , last_name)  as "Employee Name"  from employees where salary = (select min(salary) from employees);
++---------------+
+| Employee Name |
++---------------+
+| TJ Olson      |
++---------------+
+
+
+40.  Display the names of all employees except the lowest paid.
+mysql> select concat(first_name ," " , last_name)  as "Employee Name"  from employees where salary not in  (select min(salary) from employees);
++-------------------+
+| Employee Name     |
++-------------------+
+| Steven King       |
+| Neena Kochhar     |
+| Lex De Haan       |
+| Alexander Hunold  |
+| Bruce Ernst       |
+| David Austin      |
+| Valli Pataballa   |
+| Diana Lorentz     |
+| Nancy Greenberg   |
+| Daniel Faviet     |
+| John Chen         |
+| Ismael Sciarra    |
+| Jose Manuel Urman |
+| Luis Popp         |
+| Den Raphaely      |
+| Alexander Khoo    |
+| Shelli Baida      |
+| Sigal Tobias      |
+| Guy Himuro        |
+| Karen Colmenares  |
+| Matthew Weiss     |
+| Adam Fripp        |
+| Payam Kaufling    |
+| Shanta Vollman    |
+| Kevin Mourgos     |
+| Julia Nayer       |
+| Irene Mikkilineni |
+| James Landry      |
+| Steven Markle     |
+| Laura Bissot      |
+| Mozhe Atkinson    |
+| James Marlow      |
+| Jason Mallin      |
+| Michael Rogers    |
+| Ki Gee            |
+| Hazel Philtanker  |
+| Renske Ladwig     |
+| Stephen Stiles    |
+| John Seo          |
+| Joshua Patel      |
+| Trenna Rajs       |
+| Curtis Davies     |
+| Randall Matos     |
+| Peter Vargas      |
+| John Russell      |
+| Karen Partners    |
+| Alberto Errazuriz |
+| Gerald Cambrault  |
+| Eleni Zlotkey     |
+| Peter Tucker      |
+| David Bernstein   |
+| Peter Hall        |
+| Christopher Olsen |
+| Nanette Cambrault |
+| Oliver Tuvault    |
+| Janette King      |
+| Patrick Sully     |
+| Allan McEwen      |
+| Lindsey Smith     |
+| Louise Doran      |
+| Sarath Sewall     |
+| Clara Vishney     |
+| Danielle Greene   |
+| Mattea Marvins    |
+| David Lee         |
+| Sundar Ande       |
+| Amit Banda        |
+| Lisa Ozer         |
+| Harrison Bloom    |
+| Tayler Fox        |
+| William Smith     |
+| Elizabeth Bates   |
+| Sundita Kumar     |
+| Ellen Abel        |
+| Alyssa Hutton     |
+| Jonathon Taylor   |
+| Jack Livingston   |
+| Kimberely Grant   |
+| Charles Johnson   |
+| Winston Taylor    |
+| Jean Fleaur       |
+| Martha Sullivan   |
+| Girard Geoni      |
+| Nandita Sarchand  |
+| Alexis Bull       |
+| Julia Dellinger   |
+| Anthony Cabrio    |
+| Kelly Chung       |
+| Jennifer Dilly    |
+| Timothy Gates     |
+| Randall Perkins   |
+| Sarah Bell        |
+| Britney Everett   |
+| Samuel McCain     |
+| Vance Jones       |
+| Alana Walsh       |
+| Kevin Feeney      |
+| Donald OConnell   |
+| Douglas Grant     |
+| Jennifer Whalen   |
+| Michael Hartstein |
+| Pat Fay           |
+| Susan Mavris      |
+| Hermann Baer      |
+| Shelley Higgins   |
+| William Gietz     |
++-------------------+
+
+
+41. Write a query to display the last name, department number, department name for all employees. 
+mysql> select last_name , t1.department_id, department_name from employees t1 join departments on t1.department_id = departments.department_id;
++-------------+---------------+------------------+
+| last_name   | department_id | department_name  |
++-------------+---------------+------------------+
+| King        |            90 | Executive        |
+| Kochhar     |            90 | Executive        |
+| De Haan     |            90 | Executive        |
+| Hunold      |            60 | IT               |
+| Ernst       |            60 | IT               |
+| Austin      |            60 | IT               |
+| Pataballa   |            60 | IT               |
+| Lorentz     |            60 | IT               |
+| Greenberg   |           100 | Finance          |
+| Faviet      |           100 | Finance          |
+| Chen        |           100 | Finance          |
+| Sciarra     |           100 | Finance          |
+| Urman       |           100 | Finance          |
+| Popp        |           100 | Finance          |
+| Raphaely    |            30 | Purchasing       |
+| Khoo        |            30 | Purchasing       |
+| Baida       |            30 | Purchasing       |
+| Tobias      |            30 | Purchasing       |
+| Himuro      |            30 | Purchasing       |
+| Colmenares  |            30 | Purchasing       |
+| Weiss       |            50 | Shipping         |
+| Fripp       |            50 | Shipping         |
+| Kaufling    |            50 | Shipping         |
+| Vollman     |            50 | Shipping         |
+| Mourgos     |            50 | Shipping         |
+| Nayer       |            50 | Shipping         |
+| Mikkilineni |            50 | Shipping         |
+| Landry      |            50 | Shipping         |
+| Markle      |            50 | Shipping         |
+| Bissot      |            50 | Shipping         |
+| Atkinson    |            50 | Shipping         |
+| Marlow      |            50 | Shipping         |
+| Olson       |            50 | Shipping         |
+| Mallin      |            50 | Shipping         |
+| Rogers      |            50 | Shipping         |
+| Gee         |            50 | Shipping         |
+| Philtanker  |            50 | Shipping         |
+| Ladwig      |            50 | Shipping         |
+| Stiles      |            50 | Shipping         |
+| Seo         |            50 | Shipping         |
+| Patel       |            50 | Shipping         |
+| Rajs        |            50 | Shipping         |
+| Davies      |            50 | Shipping         |
+| Matos       |            50 | Shipping         |
+| Vargas      |            50 | Shipping         |
+| Russell     |            80 | Sales            |
+| Partners    |            80 | Sales            |
+| Errazuriz   |            80 | Sales            |
+| Cambrault   |            80 | Sales            |
+| Zlotkey     |            80 | Sales            |
+| Tucker      |            80 | Sales            |
+| Bernstein   |            80 | Sales            |
+| Hall        |            80 | Sales            |
+| Olsen       |            80 | Sales            |
+| Cambrault   |            80 | Sales            |
+| Tuvault     |            80 | Sales            |
+| King        |            80 | Sales            |
+| Sully       |            80 | Sales            |
+| McEwen      |            80 | Sales            |
+| Smith       |            80 | Sales            |
+| Doran       |            80 | Sales            |
+| Sewall      |            80 | Sales            |
+| Vishney     |            80 | Sales            |
+| Greene      |            80 | Sales            |
+| Marvins     |            80 | Sales            |
+| Lee         |            80 | Sales            |
+| Ande        |            80 | Sales            |
+| Banda       |            80 | Sales            |
+| Ozer        |            80 | Sales            |
+| Bloom       |            80 | Sales            |
+| Fox         |            80 | Sales            |
+| Smith       |            80 | Sales            |
+| Bates       |            80 | Sales            |
+| Kumar       |            80 | Sales            |
+| Abel        |            80 | Sales            |
+| Hutton      |            80 | Sales            |
+| Taylor      |            80 | Sales            |
+| Livingston  |            80 | Sales            |
+| Johnson     |            80 | Sales            |
+| Taylor      |            50 | Shipping         |
+| Fleaur      |            50 | Shipping         |
+| Sullivan    |            50 | Shipping         |
+| Geoni       |            50 | Shipping         |
+| Sarchand    |            50 | Shipping         |
+| Bull        |            50 | Shipping         |
+| Dellinger   |            50 | Shipping         |
+| Cabrio      |            50 | Shipping         |
+| Chung       |            50 | Shipping         |
+| Dilly       |            50 | Shipping         |
+| Gates       |            50 | Shipping         |
+| Perkins     |            50 | Shipping         |
+| Bell        |            50 | Shipping         |
+| Everett     |            50 | Shipping         |
+| McCain      |            50 | Shipping         |
+| Jones       |            50 | Shipping         |
+| Walsh       |            50 | Shipping         |
+| Feeney      |            50 | Shipping         |
+| OConnell    |            50 | Shipping         |
+| Grant       |            50 | Shipping         |
+| Whalen      |            10 | Administration   |
+| Hartstein   |            20 | Marketing        |
+| Fay         |            20 | Marketing        |
+| Mavris      |            40 | Human Resources  |
+| Baer        |            70 | Public Relations |
+| Higgins     |           110 | Accounting       |
+| Gietz       |           110 | Accounting       |
++-------------+---------------+------------------+
+
+
+42. Create a unique list of all jobs that are in department 4. Include the location of the department in the output. 
+mysql> select distinct(e1.job_title),e4.city from jobs e1 join employees e2 on e1.job_id = e2.job_id join departments e3 on e2.department_id = e3.department_id join locations e4 on e3.location_id = e4.location_id;
++---------------------------------+---------------------+
+| job_title                       | city                |
++---------------------------------+---------------------+
+| President                       | Seattle             |
+| Administration Vice President   | Seattle             |
+| Programmer                      | Southlake           |
+| Finance Manager                 | Seattle             |
+| Accountant                      | Seattle             |
+| Purchasing Manager              | Seattle             |
+| Purchasing Clerk                | Seattle             |
+| Stock Manager                   | South San Francisco |
+| Stock Clerk                     | South San Francisco |
+| Sales Manager                   | Oxford              |
+| Sales Representative            | Oxford              |
+| Shipping Clerk                  | South San Francisco |
+| Administration Assistant        | Seattle             |
+| Marketing Manager               | Toronto             |
+| Marketing Representative        | Toronto             |
+| Human Resources Representative  | London              |
+| Public Relations Representative | Munich              |
+| Accounting Manager              | Seattle             |
+| Public Accountant               | Seattle             |
++---------------------------------+---------------------+
+
+
+43. Write a query to display the employee last name,department name,location id and city of all employees who earn commission. 
+mysql> select e1.last_name ,e2.department_id , e3.location_id , e3.city from employees e1 join departments e2 on e1.department_id = e2.department_id join locations
+    -> e3 on e3.location_id = e2.location_id where commission_pct is not null;
++------------+---------------+-------------+--------+
+| last_name  | department_id | location_id | city   |
++------------+---------------+-------------+--------+
+| Russell    |            80 |        2500 | Oxford |
+| Partners   |            80 |        2500 | Oxford |
+| Errazuriz  |            80 |        2500 | Oxford |
+| Cambrault  |            80 |        2500 | Oxford |
+| Zlotkey    |            80 |        2500 | Oxford |
+| Tucker     |            80 |        2500 | Oxford |
+| Bernstein  |            80 |        2500 | Oxford |
+| Hall       |            80 |        2500 | Oxford |
+| Olsen      |            80 |        2500 | Oxford |
+| Cambrault  |            80 |        2500 | Oxford |
+| Tuvault    |            80 |        2500 | Oxford |
+| King       |            80 |        2500 | Oxford |
+| Sully      |            80 |        2500 | Oxford |
+| McEwen     |            80 |        2500 | Oxford |
+| Smith      |            80 |        2500 | Oxford |
+| Doran      |            80 |        2500 | Oxford |
+| Sewall     |            80 |        2500 | Oxford |
+| Vishney    |            80 |        2500 | Oxford |
+| Greene     |            80 |        2500 | Oxford |
+| Marvins    |            80 |        2500 | Oxford |
+| Lee        |            80 |        2500 | Oxford |
+| Ande       |            80 |        2500 | Oxford |
+| Banda      |            80 |        2500 | Oxford |
+| Ozer       |            80 |        2500 | Oxford |
+| Bloom      |            80 |        2500 | Oxford |
+| Fox        |            80 |        2500 | Oxford |
+| Smith      |            80 |        2500 | Oxford |
+| Bates      |            80 |        2500 | Oxford |
+| Kumar      |            80 |        2500 | Oxford |
+| Abel       |            80 |        2500 | Oxford |
+| Hutton     |            80 |        2500 | Oxford |
+| Taylor     |            80 |        2500 | Oxford |
+| Livingston |            80 |        2500 | Oxford |
+| Johnson    |            80 |        2500 | Oxford |
++------------+---------------+-------------+--------+
+
+
+44.  Display the employee last name and department name of all employees who have an 'a' in their last name.
+mysql> select last_name , department_name from employees, departments where employees.department_id = departments.department_id and last_name like "%a%";
++------------+------------------+
+| last_name  | department_name  |
++------------+------------------+
+| Kochhar    | Executive        |
+| De Haan    | Executive        |
+| Austin     | IT               |
+| Pataballa  | IT               |
+| Faviet     | Finance          |
+| Sciarra    | Finance          |
+| Urman      | Finance          |
+| Raphaely   | Purchasing       |
+| Baida      | Purchasing       |
+| Tobias     | Purchasing       |
+| Colmenares | Purchasing       |
+| Kaufling   | Shipping         |
+| Vollman    | Shipping         |
+| Nayer      | Shipping         |
+| Landry     | Shipping         |
+| Markle     | Shipping         |
+| Atkinson   | Shipping         |
+| Marlow     | Shipping         |
+| Mallin     | Shipping         |
+| Philtanker | Shipping         |
+| Ladwig     | Shipping         |
+| Patel      | Shipping         |
+| Rajs       | Shipping         |
+| Davies     | Shipping         |
+| Matos      | Shipping         |
+| Vargas     | Shipping         |
+| Partners   | Sales            |
+| Errazuriz  | Sales            |
+| Cambrault  | Sales            |
+| Hall       | Sales            |
+| Cambrault  | Sales            |
+| Tuvault    | Sales            |
+| Doran      | Sales            |
+| Sewall     | Sales            |
+| Marvins    | Sales            |
+| Ande       | Sales            |
+| Banda      | Sales            |
+| Bates      | Sales            |
+| Kumar      | Sales            |
+| Abel       | Sales            |
+| Taylor     | Sales            |
+| Taylor     | Shipping         |
+| Fleaur     | Shipping         |
+| Sullivan   | Shipping         |
+| Sarchand   | Shipping         |
+| Cabrio     | Shipping         |
+| Gates      | Shipping         |
+| McCain     | Shipping         |
+| Walsh      | Shipping         |
+| Grant      | Shipping         |
+| Whalen     | Administration   |
+| Hartstein  | Marketing        |
+| Fay        | Marketing        |
+| Mavris     | Human Resources  |
+| Baer       | Public Relations |
++------------+------------------+
+
+
+45. Write a query to display the last name,job,department number and department name for all employees who work in ATLANTA.
+mysql> select e.last_name,e.job_id,e.department_id,d.department_name from employees e join departments d on e.department_id = d.department_id join locations i on d.location_id = i.location_id where i.city = "Atlanta";
+Empty set (0.00 sec)
+
+
+46. Display the employee last name and employee number along with their manager's last name and manager number.
+mysql> select e1.last_name as "Emp_Lastname" , e1.employee_id as "Emp_id",e2.last_name as "Manager_Name",e2.employee_id as "Manager_id" from employees e1, employees e2 where e1.manager_id = e2.employee_id;
++--------------+--------+--------------+------------+
+| Emp_Lastname | Emp_id | Manager_Name | Manager_id |
++--------------+--------+--------------+------------+
+| Kochhar      |    101 | King         |        100 |
+| De Haan      |    102 | King         |        100 |
+| Hunold       |    103 | De Haan      |        102 |
+| Ernst        |    104 | Hunold       |        103 |
+| Austin       |    105 | Hunold       |        103 |
+| Pataballa    |    106 | Hunold       |        103 |
+| Lorentz      |    107 | Hunold       |        103 |
+| Greenberg    |    108 | Kochhar      |        101 |
+| Faviet       |    109 | Greenberg    |        108 |
+| Chen         |    110 | Greenberg    |        108 |
+| Sciarra      |    111 | Greenberg    |        108 |
+| Urman        |    112 | Greenberg    |        108 |
+| Popp         |    113 | Greenberg    |        108 |
+| Raphaely     |    114 | King         |        100 |
+| Khoo         |    115 | Raphaely     |        114 |
+| Baida        |    116 | Raphaely     |        114 |
+| Tobias       |    117 | Raphaely     |        114 |
+| Himuro       |    118 | Raphaely     |        114 |
+| Colmenares   |    119 | Raphaely     |        114 |
+| Weiss        |    120 | King         |        100 |
+| Fripp        |    121 | King         |        100 |
+| Kaufling     |    122 | King         |        100 |
+| Vollman      |    123 | King         |        100 |
+| Mourgos      |    124 | King         |        100 |
+| Nayer        |    125 | Weiss        |        120 |
+| Mikkilineni  |    126 | Weiss        |        120 |
+| Landry       |    127 | Weiss        |        120 |
+| Markle       |    128 | Weiss        |        120 |
+| Bissot       |    129 | Fripp        |        121 |
+| Atkinson     |    130 | Fripp        |        121 |
+| Marlow       |    131 | Fripp        |        121 |
+| Olson        |    132 | Fripp        |        121 |
+| Mallin       |    133 | Kaufling     |        122 |
+| Rogers       |    134 | Kaufling     |        122 |
+| Gee          |    135 | Kaufling     |        122 |
+| Philtanker   |    136 | Kaufling     |        122 |
+| Ladwig       |    137 | Vollman      |        123 |
+| Stiles       |    138 | Vollman      |        123 |
+| Seo          |    139 | Vollman      |        123 |
+| Patel        |    140 | Vollman      |        123 |
+| Rajs         |    141 | Mourgos      |        124 |
+| Davies       |    142 | Mourgos      |        124 |
+| Matos        |    143 | Mourgos      |        124 |
+| Vargas       |    144 | Mourgos      |        124 |
+| Russell      |    145 | King         |        100 |
+| Partners     |    146 | King         |        100 |
+| Errazuriz    |    147 | King         |        100 |
+| Cambrault    |    148 | King         |        100 |
+| Zlotkey      |    149 | King         |        100 |
+| Tucker       |    150 | Russell      |        145 |
+| Bernstein    |    151 | Russell      |        145 |
+| Hall         |    152 | Russell      |        145 |
+| Olsen        |    153 | Russell      |        145 |
+| Cambrault    |    154 | Russell      |        145 |
+| Tuvault      |    155 | Russell      |        145 |
+| King         |    156 | Partners     |        146 |
+| Sully        |    157 | Partners     |        146 |
+| McEwen       |    158 | Partners     |        146 |
+| Smith        |    159 | Partners     |        146 |
+| Doran        |    160 | Partners     |        146 |
+| Sewall       |    161 | Partners     |        146 |
+| Vishney      |    162 | Errazuriz    |        147 |
+| Greene       |    163 | Errazuriz    |        147 |
+| Marvins      |    164 | Errazuriz    |        147 |
+| Lee          |    165 | Errazuriz    |        147 |
+| Ande         |    166 | Errazuriz    |        147 |
+| Banda        |    167 | Errazuriz    |        147 |
+| Ozer         |    168 | Cambrault    |        148 |
+| Bloom        |    169 | Cambrault    |        148 |
+| Fox          |    170 | Cambrault    |        148 |
+| Smith        |    171 | Cambrault    |        148 |
+| Bates        |    172 | Cambrault    |        148 |
+| Kumar        |    173 | Cambrault    |        148 |
+| Abel         |    174 | Zlotkey      |        149 |
+| Hutton       |    175 | Zlotkey      |        149 |
+| Taylor       |    176 | Zlotkey      |        149 |
+| Livingston   |    177 | Zlotkey      |        149 |
+| Grant        |    178 | Zlotkey      |        149 |
+| Johnson      |    179 | Zlotkey      |        149 |
+| Taylor       |    180 | Weiss        |        120 |
+| Fleaur       |    181 | Weiss        |        120 |
+| Sullivan     |    182 | Weiss        |        120 |
+| Geoni        |    183 | Weiss        |        120 |
+| Sarchand     |    184 | Fripp        |        121 |
+| Bull         |    185 | Fripp        |        121 |
+| Dellinger    |    186 | Fripp        |        121 |
+| Cabrio       |    187 | Fripp        |        121 |
+| Chung        |    188 | Kaufling     |        122 |
+| Dilly        |    189 | Kaufling     |        122 |
+| Gates        |    190 | Kaufling     |        122 |
+| Perkins      |    191 | Kaufling     |        122 |
+| Bell         |    192 | Vollman      |        123 |
+| Everett      |    193 | Vollman      |        123 |
+| McCain       |    194 | Vollman      |        123 |
+| Jones        |    195 | Vollman      |        123 |
+| Walsh        |    196 | Mourgos      |        124 |
+| Feeney       |    197 | Mourgos      |        124 |
+| OConnell     |    198 | Mourgos      |        124 |
+| Grant        |    199 | Mourgos      |        124 |
+| Whalen       |    200 | Kochhar      |        101 |
+| Hartstein    |    201 | King         |        100 |
+| Fay          |    202 | Hartstein    |        201 |
+| Mavris       |    203 | Kochhar      |        101 |
+| Baer         |    204 | Kochhar      |        101 |
+| Higgins      |    205 | Kochhar      |        101 |
+| Gietz        |    206 | Higgins      |        205 |
++--------------+--------+--------------+------------+
+
+
+47.  Display the employee last name and employee number along with their manager's last name and manager number (including the employees who have no manager).
+mysql> select e1.last_name, e1.employee_id, e2.last_name as "Manager_name", e2.employee_id as "Manager_id" from employees e1 left outer join  employees e2 on e2.employee_id = e1.manager_id;
++-------------+-------------+--------------+------------+
+| last_name   | employee_id | Manager_name | Manager_id |
++-------------+-------------+--------------+------------+
+| King        |         100 | NULL         |       NULL |
+| Kochhar     |         101 | King         |        100 |
+| De Haan     |         102 | King         |        100 |
+| Hunold      |         103 | De Haan      |        102 |
+| Ernst       |         104 | Hunold       |        103 |
+| Austin      |         105 | Hunold       |        103 |
+| Pataballa   |         106 | Hunold       |        103 |
+| Lorentz     |         107 | Hunold       |        103 |
+| Greenberg   |         108 | Kochhar      |        101 |
+| Faviet      |         109 | Greenberg    |        108 |
+| Chen        |         110 | Greenberg    |        108 |
+| Sciarra     |         111 | Greenberg    |        108 |
+| Urman       |         112 | Greenberg    |        108 |
+| Popp        |         113 | Greenberg    |        108 |
+| Raphaely    |         114 | King         |        100 |
+| Khoo        |         115 | Raphaely     |        114 |
+| Baida       |         116 | Raphaely     |        114 |
+| Tobias      |         117 | Raphaely     |        114 |
+| Himuro      |         118 | Raphaely     |        114 |
+| Colmenares  |         119 | Raphaely     |        114 |
+| Weiss       |         120 | King         |        100 |
+| Fripp       |         121 | King         |        100 |
+| Kaufling    |         122 | King         |        100 |
+| Vollman     |         123 | King         |        100 |
+| Mourgos     |         124 | King         |        100 |
+| Nayer       |         125 | Weiss        |        120 |
+| Mikkilineni |         126 | Weiss        |        120 |
+| Landry      |         127 | Weiss        |        120 |
+| Markle      |         128 | Weiss        |        120 |
+| Bissot      |         129 | Fripp        |        121 |
+| Atkinson    |         130 | Fripp        |        121 |
+| Marlow      |         131 | Fripp        |        121 |
+| Olson       |         132 | Fripp        |        121 |
+| Mallin      |         133 | Kaufling     |        122 |
+| Rogers      |         134 | Kaufling     |        122 |
+| Gee         |         135 | Kaufling     |        122 |
+| Philtanker  |         136 | Kaufling     |        122 |
+| Ladwig      |         137 | Vollman      |        123 |
+| Stiles      |         138 | Vollman      |        123 |
+| Seo         |         139 | Vollman      |        123 |
+| Patel       |         140 | Vollman      |        123 |
+| Rajs        |         141 | Mourgos      |        124 |
+| Davies      |         142 | Mourgos      |        124 |
+| Matos       |         143 | Mourgos      |        124 |
+| Vargas      |         144 | Mourgos      |        124 |
+| Russell     |         145 | King         |        100 |
+| Partners    |         146 | King         |        100 |
+| Errazuriz   |         147 | King         |        100 |
+| Cambrault   |         148 | King         |        100 |
+| Zlotkey     |         149 | King         |        100 |
+| Tucker      |         150 | Russell      |        145 |
+| Bernstein   |         151 | Russell      |        145 |
+| Hall        |         152 | Russell      |        145 |
+| Olsen       |         153 | Russell      |        145 |
+| Cambrault   |         154 | Russell      |        145 |
+| Tuvault     |         155 | Russell      |        145 |
+| King        |         156 | Partners     |        146 |
+| Sully       |         157 | Partners     |        146 |
+| McEwen      |         158 | Partners     |        146 |
+| Smith       |         159 | Partners     |        146 |
+| Doran       |         160 | Partners     |        146 |
+| Sewall      |         161 | Partners     |        146 |
+| Vishney     |         162 | Errazuriz    |        147 |
+| Greene      |         163 | Errazuriz    |        147 |
+| Marvins     |         164 | Errazuriz    |        147 |
+| Lee         |         165 | Errazuriz    |        147 |
+| Ande        |         166 | Errazuriz    |        147 |
+| Banda       |         167 | Errazuriz    |        147 |
+| Ozer        |         168 | Cambrault    |        148 |
+| Bloom       |         169 | Cambrault    |        148 |
+| Fox         |         170 | Cambrault    |        148 |
+| Smith       |         171 | Cambrault    |        148 |
+| Bates       |         172 | Cambrault    |        148 |
+| Kumar       |         173 | Cambrault    |        148 |
+| Abel        |         174 | Zlotkey      |        149 |
+| Hutton      |         175 | Zlotkey      |        149 |
+| Taylor      |         176 | Zlotkey      |        149 |
+| Livingston  |         177 | Zlotkey      |        149 |
+| Grant       |         178 | Zlotkey      |        149 |
+| Johnson     |         179 | Zlotkey      |        149 |
+| Taylor      |         180 | Weiss        |        120 |
+| Fleaur      |         181 | Weiss        |        120 |
+| Sullivan    |         182 | Weiss        |        120 |
+| Geoni       |         183 | Weiss        |        120 |
+| Sarchand    |         184 | Fripp        |        121 |
+| Bull        |         185 | Fripp        |        121 |
+| Dellinger   |         186 | Fripp        |        121 |
+| Cabrio      |         187 | Fripp        |        121 |
+| Chung       |         188 | Kaufling     |        122 |
+| Dilly       |         189 | Kaufling     |        122 |
+| Gates       |         190 | Kaufling     |        122 |
+| Perkins     |         191 | Kaufling     |        122 |
+| Bell        |         192 | Vollman      |        123 |
+| Everett     |         193 | Vollman      |        123 |
+| McCain      |         194 | Vollman      |        123 |
+| Jones       |         195 | Vollman      |        123 |
+| Walsh       |         196 | Mourgos      |        124 |
+| Feeney      |         197 | Mourgos      |        124 |
+| OConnell    |         198 | Mourgos      |        124 |
+| Grant       |         199 | Mourgos      |        124 |
+| Whalen      |         200 | Kochhar      |        101 |
+| Hartstein   |         201 | King         |        100 |
+| Fay         |         202 | Hartstein    |        201 |
+| Mavris      |         203 | Kochhar      |        101 |
+| Baer        |         204 | Kochhar      |        101 |
+| Higgins     |         205 | Kochhar      |        101 |
+| Gietz       |         206 | Higgins      |        205 |
++-------------+-------------+--------------+------------+
+
+
+48. Create a query that displays employees last name,department number,and all the employees who work in the same department as a given employee.
+mysql> select last_name , e.department_id , department_name from employees e , departments d where e.department_id = d.department_id;
++-------------+---------------+------------------+
+| last_name   | department_id | department_name  |
++-------------+---------------+------------------+
+| King        |            90 | Executive        |
+| Kochhar     |            90 | Executive        |
+| De Haan     |            90 | Executive        |
+| Hunold      |            60 | IT               |
+| Ernst       |            60 | IT               |
+| Austin      |            60 | IT               |
+| Pataballa   |            60 | IT               |
+| Lorentz     |            60 | IT               |
+| Greenberg   |           100 | Finance          |
+| Faviet      |           100 | Finance          |
+| Chen        |           100 | Finance          |
+| Sciarra     |           100 | Finance          |
+| Urman       |           100 | Finance          |
+| Popp        |           100 | Finance          |
+| Raphaely    |            30 | Purchasing       |
+| Khoo        |            30 | Purchasing       |
+| Baida       |            30 | Purchasing       |
+| Tobias      |            30 | Purchasing       |
+| Himuro      |            30 | Purchasing       |
+| Colmenares  |            30 | Purchasing       |
+| Weiss       |            50 | Shipping         |
+| Fripp       |            50 | Shipping         |
+| Kaufling    |            50 | Shipping         |
+| Vollman     |            50 | Shipping         |
+| Mourgos     |            50 | Shipping         |
+| Nayer       |            50 | Shipping         |
+| Mikkilineni |            50 | Shipping         |
+| Landry      |            50 | Shipping         |
+| Markle      |            50 | Shipping         |
+| Bissot      |            50 | Shipping         |
+| Atkinson    |            50 | Shipping         |
+| Marlow      |            50 | Shipping         |
+| Olson       |            50 | Shipping         |
+| Mallin      |            50 | Shipping         |
+| Rogers      |            50 | Shipping         |
+| Gee         |            50 | Shipping         |
+| Philtanker  |            50 | Shipping         |
+| Ladwig      |            50 | Shipping         |
+| Stiles      |            50 | Shipping         |
+| Seo         |            50 | Shipping         |
+| Patel       |            50 | Shipping         |
+| Rajs        |            50 | Shipping         |
+| Davies      |            50 | Shipping         |
+| Matos       |            50 | Shipping         |
+| Vargas      |            50 | Shipping         |
+| Russell     |            80 | Sales            |
+| Partners    |            80 | Sales            |
+| Errazuriz   |            80 | Sales            |
+| Cambrault   |            80 | Sales            |
+| Zlotkey     |            80 | Sales            |
+| Tucker      |            80 | Sales            |
+| Bernstein   |            80 | Sales            |
+| Hall        |            80 | Sales            |
+| Olsen       |            80 | Sales            |
+| Cambrault   |            80 | Sales            |
+| Tuvault     |            80 | Sales            |
+| King        |            80 | Sales            |
+| Sully       |            80 | Sales            |
+| McEwen      |            80 | Sales            |
+| Smith       |            80 | Sales            |
+| Doran       |            80 | Sales            |
+| Sewall      |            80 | Sales            |
+| Vishney     |            80 | Sales            |
+| Greene      |            80 | Sales            |
+| Marvins     |            80 | Sales            |
+| Lee         |            80 | Sales            |
+| Ande        |            80 | Sales            |
+| Banda       |            80 | Sales            |
+| Ozer        |            80 | Sales            |
+| Bloom       |            80 | Sales            |
+| Fox         |            80 | Sales            |
+| Smith       |            80 | Sales            |
+| Bates       |            80 | Sales            |
+| Kumar       |            80 | Sales            |
+| Abel        |            80 | Sales            |
+| Hutton      |            80 | Sales            |
+| Taylor      |            80 | Sales            |
+| Livingston  |            80 | Sales            |
+| Johnson     |            80 | Sales            |
+| Taylor      |            50 | Shipping         |
+| Fleaur      |            50 | Shipping         |
+| Sullivan    |            50 | Shipping         |
+| Geoni       |            50 | Shipping         |
+| Sarchand    |            50 | Shipping         |
+| Bull        |            50 | Shipping         |
+| Dellinger   |            50 | Shipping         |
+| Cabrio      |            50 | Shipping         |
+| Chung       |            50 | Shipping         |
+| Dilly       |            50 | Shipping         |
+| Gates       |            50 | Shipping         |
+| Perkins     |            50 | Shipping         |
+| Bell        |            50 | Shipping         |
+| Everett     |            50 | Shipping         |
+| McCain      |            50 | Shipping         |
+| Jones       |            50 | Shipping         |
+| Walsh       |            50 | Shipping         |
+| Feeney      |            50 | Shipping         |
+| OConnell    |            50 | Shipping         |
+| Grant       |            50 | Shipping         |
+| Whalen      |            10 | Administration   |
+| Hartstein   |            20 | Marketing        |
+| Fay         |            20 | Marketing        |
+| Mavris      |            40 | Human Resources  |
+| Baer        |            70 | Public Relations |
+| Higgins     |           110 | Accounting       |
+| Gietz       |           110 | Accounting       |
++-------------+---------------+------------------+
+
+
+49. Create a query that displays the name,job,department name,salary,grade for all employees. Derive grade based on salary(>=50000=A, >=30000=B,<30000=C).
+mysql> select concat(first_name," ",last_name) as Employee_name , job_id , department_name , salary, case
+    -> when (salary>=50000) then ("A")
+    -> when (salary between 30000 and 49999) then ("B")
+    -> else ("C")
+    -> end as Grade from  employees , departments where employees.department_id = departments.department_id;
++-------------------+------------+------------------+----------+-------+
+| Employee_name     | job_id     | department_name  | salary   | Grade |
++-------------------+------------+------------------+----------+-------+
+| Steven King       | AD_PRES    | Executive        | 24000.00 | C     |
+| Neena Kochhar     | AD_VP      | Executive        | 17000.00 | C     |
+| Lex De Haan       | AD_VP      | Executive        | 17000.00 | C     |
+| Alexander Hunold  | IT_PROG    | IT               |  9000.00 | C     |
+| Bruce Ernst       | IT_PROG    | IT               |  6000.00 | C     |
+| David Austin      | IT_PROG    | IT               |  4800.00 | C     |
+| Valli Pataballa   | IT_PROG    | IT               |  4800.00 | C     |
+| Diana Lorentz     | IT_PROG    | IT               |  4200.00 | C     |
+| Nancy Greenberg   | FI_MGR     | Finance          | 12000.00 | C     |
+| Daniel Faviet     | FI_ACCOUNT | Finance          |  9000.00 | C     |
+| John Chen         | FI_ACCOUNT | Finance          |  8200.00 | C     |
+| Ismael Sciarra    | FI_ACCOUNT | Finance          |  7700.00 | C     |
+| Jose Manuel Urman | FI_ACCOUNT | Finance          |  7800.00 | C     |
+| Luis Popp         | FI_ACCOUNT | Finance          |  6900.00 | C     |
+| Den Raphaely      | PU_MAN     | Purchasing       | 11000.00 | C     |
+| Alexander Khoo    | PU_CLERK   | Purchasing       |  3100.00 | C     |
+| Shelli Baida      | PU_CLERK   | Purchasing       |  2900.00 | C     |
+| Sigal Tobias      | PU_CLERK   | Purchasing       |  2800.00 | C     |
+| Guy Himuro        | PU_CLERK   | Purchasing       |  2600.00 | C     |
+| Karen Colmenares  | PU_CLERK   | Purchasing       |  2500.00 | C     |
+| Matthew Weiss     | ST_MAN     | Shipping         |  8000.00 | C     |
+| Adam Fripp        | ST_MAN     | Shipping         |  8200.00 | C     |
+| Payam Kaufling    | ST_MAN     | Shipping         |  7900.00 | C     |
+| Shanta Vollman    | ST_MAN     | Shipping         |  6500.00 | C     |
+| Kevin Mourgos     | ST_MAN     | Shipping         |  5800.00 | C     |
+| Julia Nayer       | ST_CLERK   | Shipping         |  3200.00 | C     |
+| Irene Mikkilineni | ST_CLERK   | Shipping         |  2700.00 | C     |
+| James Landry      | ST_CLERK   | Shipping         |  2400.00 | C     |
+| Steven Markle     | ST_CLERK   | Shipping         |  2200.00 | C     |
+| Laura Bissot      | ST_CLERK   | Shipping         |  3300.00 | C     |
+| Mozhe Atkinson    | ST_CLERK   | Shipping         |  2800.00 | C     |
+| James Marlow      | ST_CLERK   | Shipping         |  2500.00 | C     |
+| TJ Olson          | ST_CLERK   | Shipping         |  2100.00 | C     |
+| Jason Mallin      | ST_CLERK   | Shipping         |  3300.00 | C     |
+| Michael Rogers    | ST_CLERK   | Shipping         |  2900.00 | C     |
+| Ki Gee            | ST_CLERK   | Shipping         |  2400.00 | C     |
+| Hazel Philtanker  | ST_CLERK   | Shipping         |  2200.00 | C     |
+| Renske Ladwig     | ST_CLERK   | Shipping         |  3600.00 | C     |
+| Stephen Stiles    | ST_CLERK   | Shipping         |  3200.00 | C     |
+| John Seo          | ST_CLERK   | Shipping         |  2700.00 | C     |
+| Joshua Patel      | ST_CLERK   | Shipping         |  2500.00 | C     |
+| Trenna Rajs       | ST_CLERK   | Shipping         |  3500.00 | C     |
+| Curtis Davies     | ST_CLERK   | Shipping         |  3100.00 | C     |
+| Randall Matos     | ST_CLERK   | Shipping         |  2600.00 | C     |
+| Peter Vargas      | ST_CLERK   | Shipping         |  2500.00 | C     |
+| John Russell      | SA_MAN     | Sales            | 14000.00 | C     |
+| Karen Partners    | SA_MAN     | Sales            | 13500.00 | C     |
+| Alberto Errazuriz | SA_MAN     | Sales            | 12000.00 | C     |
+| Gerald Cambrault  | SA_MAN     | Sales            | 11000.00 | C     |
+| Eleni Zlotkey     | SA_MAN     | Sales            | 10500.00 | C     |
+| Peter Tucker      | SA_REP     | Sales            | 10000.00 | C     |
+| David Bernstein   | SA_REP     | Sales            |  9500.00 | C     |
+| Peter Hall        | SA_REP     | Sales            |  9000.00 | C     |
+| Christopher Olsen | SA_REP     | Sales            |  8000.00 | C     |
+| Nanette Cambrault | SA_REP     | Sales            |  7500.00 | C     |
+| Oliver Tuvault    | SA_REP     | Sales            |  7000.00 | C     |
+| Janette King      | SA_REP     | Sales            | 10000.00 | C     |
+| Patrick Sully     | SA_REP     | Sales            |  9500.00 | C     |
+| Allan McEwen      | SA_REP     | Sales            |  9000.00 | C     |
+| Lindsey Smith     | SA_REP     | Sales            |  8000.00 | C     |
+| Louise Doran      | SA_REP     | Sales            |  7500.00 | C     |
+| Sarath Sewall     | SA_REP     | Sales            |  7000.00 | C     |
+| Clara Vishney     | SA_REP     | Sales            | 10500.00 | C     |
+| Danielle Greene   | SA_REP     | Sales            |  9500.00 | C     |
+| Mattea Marvins    | SA_REP     | Sales            |  7200.00 | C     |
+| David Lee         | SA_REP     | Sales            |  6800.00 | C     |
+| Sundar Ande       | SA_REP     | Sales            |  6400.00 | C     |
+| Amit Banda        | SA_REP     | Sales            |  6200.00 | C     |
+| Lisa Ozer         | SA_REP     | Sales            | 11500.00 | C     |
+| Harrison Bloom    | SA_REP     | Sales            | 10000.00 | C     |
+| Tayler Fox        | SA_REP     | Sales            |  9600.00 | C     |
+| William Smith     | SA_REP     | Sales            |  7400.00 | C     |
+| Elizabeth Bates   | SA_REP     | Sales            |  7300.00 | C     |
+| Sundita Kumar     | SA_REP     | Sales            |  6100.00 | C     |
+| Ellen Abel        | SA_REP     | Sales            | 11000.00 | C     |
+| Alyssa Hutton     | SA_REP     | Sales            |  8800.00 | C     |
+| Jonathon Taylor   | SA_REP     | Sales            |  8600.00 | C     |
+| Jack Livingston   | SA_REP     | Sales            |  8400.00 | C     |
+| Charles Johnson   | SA_REP     | Sales            |  6200.00 | C     |
+| Winston Taylor    | SH_CLERK   | Shipping         |  3200.00 | C     |
+| Jean Fleaur       | SH_CLERK   | Shipping         |  3100.00 | C     |
+| Martha Sullivan   | SH_CLERK   | Shipping         |  2500.00 | C     |
+| Girard Geoni      | SH_CLERK   | Shipping         |  2800.00 | C     |
+| Nandita Sarchand  | SH_CLERK   | Shipping         |  4200.00 | C     |
+| Alexis Bull       | SH_CLERK   | Shipping         |  4100.00 | C     |
+| Julia Dellinger   | SH_CLERK   | Shipping         |  3400.00 | C     |
+| Anthony Cabrio    | SH_CLERK   | Shipping         |  3000.00 | C     |
+| Kelly Chung       | SH_CLERK   | Shipping         |  3800.00 | C     |
+| Jennifer Dilly    | SH_CLERK   | Shipping         |  3600.00 | C     |
+| Timothy Gates     | SH_CLERK   | Shipping         |  2900.00 | C     |
+| Randall Perkins   | SH_CLERK   | Shipping         |  2500.00 | C     |
+| Sarah Bell        | SH_CLERK   | Shipping         |  4000.00 | C     |
+| Britney Everett   | SH_CLERK   | Shipping         |  3900.00 | C     |
+| Samuel McCain     | SH_CLERK   | Shipping         |  3200.00 | C     |
+| Vance Jones       | SH_CLERK   | Shipping         |  2800.00 | C     |
+| Alana Walsh       | SH_CLERK   | Shipping         |  3100.00 | C     |
+| Kevin Feeney      | SH_CLERK   | Shipping         |  3000.00 | C     |
+| Donald OConnell   | SH_CLERK   | Shipping         |  2600.00 | C     |
+| Douglas Grant     | SH_CLERK   | Shipping         |  2600.00 | C     |
+| Jennifer Whalen   | AD_ASST    | Administration   |  4400.00 | C     |
+| Michael Hartstein | MK_MAN     | Marketing        | 13000.00 | C     |
+| Pat Fay           | MK_REP     | Marketing        |  6000.00 | C     |
+| Susan Mavris      | HR_REP     | Human Resources  |  6500.00 | C     |
+| Hermann Baer      | PR_REP     | Public Relations | 10000.00 | C     |
+| Shelley Higgins   | AC_MGR     | Accounting       | 12000.00 | C     |
+| William Gietz     | AC_ACCOUNT | Accounting       |  8300.00 | C     |
++-------------------+------------+------------------+----------+-------+
+
+
+50.  Display the names and hire date for all employees who were hired before their managers along withe their manager names and hire date. Label the columns as Employee name, emp_hire_date,manager name,man_hire_date.
+mysql> select e2.first_name as Employee_Name, e2.hire_date as Emp_hire_date , e1.first_name as Manager_Name , e1.hire_date as Manager_hire_date from employees e1, employees e2 where e1.employee_id in( select e2.manager_id from employees) and e1.hire_date > e2.hire_date;
++---------------+---------------+--------------+-------------------+
+| Employee_Name | Emp_hire_date | Manager_Name | Manager_hire_date |
++---------------+---------------+--------------+-------------------+
+| Alexander     | 1990-01-03    | Lex          | 1993-01-13        |
+| Daniel        | 1994-08-16    | Nancy        | 1994-08-17        |
+| James         | 1997-02-16    | Adam         | 1997-04-10        |
+| Renske        | 1995-07-14    | Shanta       | 1997-10-10        |
+| Trenna        | 1995-10-17    | Kevin        | 1999-11-16        |
+| Curtis        | 1997-01-29    | Kevin        | 1999-11-16        |
+| Randall       | 1998-03-15    | Kevin        | 1999-11-16        |
+| Peter         | 1998-07-09    | Kevin        | 1999-11-16        |
+| Janette       | 1996-01-30    | Karen        | 1997-01-05        |
+| Patrick       | 1996-03-04    | Karen        | 1997-01-05        |
+| Allan         | 1996-08-01    | Karen        | 1997-01-05        |
+| Lisa          | 1997-03-11    | Gerald       | 1999-10-15        |
+| Harrison      | 1998-03-23    | Gerald       | 1999-10-15        |
+| Tayler        | 1998-01-24    | Gerald       | 1999-10-15        |
+| William       | 1999-02-23    | Gerald       | 1999-10-15        |
+| Elizabeth     | 1999-03-24    | Gerald       | 1999-10-15        |
+| Ellen         | 1996-05-11    | Eleni        | 2000-01-29        |
+| Alyssa        | 1997-03-19    | Eleni        | 2000-01-29        |
+| Jonathon      | 1998-03-24    | Eleni        | 2000-01-29        |
+| Jack          | 1998-04-23    | Eleni        | 2000-01-29        |
+| Kimberely     | 1999-05-24    | Eleni        | 2000-01-29        |
+| Charles       | 2000-01-04    | Eleni        | 2000-01-29        |
+| Nandita       | 1996-01-27    | Adam         | 1997-04-10        |
+| Alexis        | 1997-02-20    | Adam         | 1997-04-10        |
+| Sarah         | 1996-02-04    | Shanta       | 1997-10-10        |
+| Britney       | 1997-03-03    | Shanta       | 1997-10-10        |
+| Alana         | 1998-04-24    | Kevin        | 1999-11-16        |
+| Kevin         | 1998-05-23    | Kevin        | 1999-11-16        |
+| Donald        | 1999-06-21    | Kevin        | 1999-11-16        |
+| Jennifer      | 1987-09-17    | Neena        | 1989-09-21        |
++---------------+---------------+--------------+-------------------+
+
+
+51. Write a query to display the last name and hire date of any employee in the same department as SALES.
+mysql> select last_name, hire_date from employees , departments where employees.department_id = departments.department_id and department_name = "sales";
++------------+------------+
+| last_name  | hire_date  |
++------------+------------+
+| Russell    | 1996-10-01 |
+| Partners   | 1997-01-05 |
+| Errazuriz  | 1997-03-10 |
+| Cambrault  | 1999-10-15 |
+| Zlotkey    | 2000-01-29 |
+| Tucker     | 1997-01-30 |
+| Bernstein  | 1997-03-24 |
+| Hall       | 1997-08-20 |
+| Olsen      | 1998-03-30 |
+| Cambrault  | 1998-12-09 |
+| Tuvault    | 1999-11-23 |
+| King       | 1996-01-30 |
+| Sully      | 1996-03-04 |
+| McEwen     | 1996-08-01 |
+| Smith      | 1997-03-10 |
+| Doran      | 1997-12-15 |
+| Sewall     | 1998-11-03 |
+| Vishney    | 1997-11-11 |
+| Greene     | 1999-03-19 |
+| Marvins    | 2000-01-24 |
+| Lee        | 2000-02-23 |
+| Ande       | 2000-03-24 |
+| Banda      | 2000-04-21 |
+| Ozer       | 1997-03-11 |
+| Bloom      | 1998-03-23 |
+| Fox        | 1998-01-24 |
+| Smith      | 1999-02-23 |
+| Bates      | 1999-03-24 |
+| Kumar      | 2000-04-21 |
+| Abel       | 1996-05-11 |
+| Hutton     | 1997-03-19 |
+| Taylor     | 1998-03-24 |
+| Livingston | 1998-04-23 |
+| Johnson    | 2000-01-04 |
++------------+------------+
+
+
+52. Create a query to display the employee numbers and last names of all employees who earn more than the average salary. Sort the results in ascending order of salary.
+mysql> select employee_id , last_name from employees where salary > (select avg(salary) from employees) order by salary ;
++-------------+------------+
+| employee_id | last_name  |
++-------------+------------+
+|         203 | Mavris     |
+|         123 | Vollman    |
+|         165 | Lee        |
+|         113 | Popp       |
+|         155 | Tuvault    |
+|         161 | Sewall     |
+|         178 | Grant      |
+|         164 | Marvins    |
+|         172 | Bates      |
+|         171 | Smith      |
+|         160 | Doran      |
+|         154 | Cambrault  |
+|         111 | Sciarra    |
+|         112 | Urman      |
+|         122 | Kaufling   |
+|         159 | Smith      |
+|         153 | Olsen      |
+|         120 | Weiss      |
+|         110 | Chen       |
+|         121 | Fripp      |
+|         206 | Gietz      |
+|         177 | Livingston |
+|         176 | Taylor     |
+|         175 | Hutton     |
+|         103 | Hunold     |
+|         109 | Faviet     |
+|         158 | McEwen     |
+|         152 | Hall       |
+|         157 | Sully      |
+|         151 | Bernstein  |
+|         163 | Greene     |
+|         170 | Fox        |
+|         156 | King       |
+|         150 | Tucker     |
+|         169 | Bloom      |
+|         204 | Baer       |
+|         149 | Zlotkey    |
+|         162 | Vishney    |
+|         114 | Raphaely   |
+|         148 | Cambrault  |
+|         174 | Abel       |
+|         168 | Ozer       |
+|         108 | Greenberg  |
+|         147 | Errazuriz  |
+|         205 | Higgins    |
+|         201 | Hartstein  |
+|         146 | Partners   |
+|         145 | Russell    |
+|         101 | Kochhar    |
+|         102 | De Haan    |
+|         100 | King       |
++-------------+------------+
+
+
+53.Write a query that displays the employee numbers and last names of all employees who work in a department with any employee whose last name contains a' u.
+mysql> select employee_id , last_name from employees where department_id in (select department_id from employees where  last_name like "%u%");
++-------------+-------------+
+| employee_id | last_name   |
++-------------+-------------+
+|         103 | Hunold      |
+|         104 | Ernst       |
+|         105 | Austin      |
+|         106 | Pataballa   |
+|         107 | Lorentz     |
+|         108 | Greenberg   |
+|         109 | Faviet      |
+|         110 | Chen        |
+|         111 | Sciarra     |
+|         112 | Urman       |
+|         113 | Popp        |
+|         114 | Raphaely    |
+|         115 | Khoo        |
+|         116 | Baida       |
+|         117 | Tobias      |
+|         118 | Himuro      |
+|         119 | Colmenares  |
+|         120 | Weiss       |
+|         121 | Fripp       |
+|         122 | Kaufling    |
+|         123 | Vollman     |
+|         124 | Mourgos     |
+|         125 | Nayer       |
+|         126 | Mikkilineni |
+|         127 | Landry      |
+|         128 | Markle      |
+|         129 | Bissot      |
+|         130 | Atkinson    |
+|         131 | Marlow      |
+|         132 | Olson       |
+|         133 | Mallin      |
+|         134 | Rogers      |
+|         135 | Gee         |
+|         136 | Philtanker  |
+|         137 | Ladwig      |
+|         138 | Stiles      |
+|         139 | Seo         |
+|         140 | Patel       |
+|         141 | Rajs        |
+|         142 | Davies      |
+|         143 | Matos       |
+|         144 | Vargas      |
+|         145 | Russell     |
+|         146 | Partners    |
+|         147 | Errazuriz   |
+|         148 | Cambrault   |
+|         149 | Zlotkey     |
+|         150 | Tucker      |
+|         151 | Bernstein   |
+|         152 | Hall        |
+|         153 | Olsen       |
+|         154 | Cambrault   |
+|         155 | Tuvault     |
+|         156 | King        |
+|         157 | Sully       |
+|         158 | McEwen      |
+|         159 | Smith       |
+|         160 | Doran       |
+|         161 | Sewall      |
+|         162 | Vishney     |
+|         163 | Greene      |
+|         164 | Marvins     |
+|         165 | Lee         |
+|         166 | Ande        |
+|         167 | Banda       |
+|         168 | Ozer        |
+|         169 | Bloom       |
+|         170 | Fox         |
+|         171 | Smith       |
+|         172 | Bates       |
+|         173 | Kumar       |
+|         174 | Abel        |
+|         175 | Hutton      |
+|         176 | Taylor      |
+|         177 | Livingston  |
+|         179 | Johnson     |
+|         180 | Taylor      |
+|         181 | Fleaur      |
+|         182 | Sullivan    |
+|         183 | Geoni       |
+|         184 | Sarchand    |
+|         185 | Bull        |
+|         186 | Dellinger   |
+|         187 | Cabrio      |
+|         188 | Chung       |
+|         189 | Dilly       |
+|         190 | Gates       |
+|         191 | Perkins     |
+|         192 | Bell        |
+|         193 | Everett     |
+|         194 | McCain      |
+|         195 | Jones       |
+|         196 | Walsh       |
+|         197 | Feeney      |
+|         198 | OConnell    |
+|         199 | Grant       |
++-------------+-------------+
+
+
+54.  Display the last name, department number, and job ID of all employees whose department location is ATLANTA.
+mysql> select e.last_name , e.department_id , e.job_id from employees e, departments d, locations l where e.department_id = d.department_id and d.location_id = l.location_id and l.city = "Atlanta";
+Empty set (0.00 sec)
+
+
+55.  Display the last name and salary of every employee who reports to FILLMORE.
+mysql> select last_name , salary from employees where manager_id = (select employee_id from employees where last_name = "fillmore");
+Empty set (0.00 sec)
+
+
+56. Display the department number, last name, and job ID for every employee in the OPERATIONS department.
+mysql> select departments.department_id , last_name , job_id from employees , departments where employees.department_id = departments.department_id and department_name = "operations";
+Empty set (0.00 sec)
+
+
+57. Modify the above query to display the employee numbers, last names, and salaries of all employees who earn more than the average salary and who work in a department with any employee with a 'u'in their name.
+mysql> select employee_id ,last_name, salary from employees where salary > (select avg(salary) from employees) and department_id in  (select department_id from employees where last_name like "%u%");
++-------------+------------+----------+
+| employee_id | last_name  | salary   |
++-------------+------------+----------+
+|         103 | Hunold     |  9000.00 |
+|         108 | Greenberg  | 12000.00 |
+|         109 | Faviet     |  9000.00 |
+|         110 | Chen       |  8200.00 |
+|         111 | Sciarra    |  7700.00 |
+|         112 | Urman      |  7800.00 |
+|         113 | Popp       |  6900.00 |
+|         114 | Raphaely   | 11000.00 |
+|         120 | Weiss      |  8000.00 |
+|         121 | Fripp      |  8200.00 |
+|         122 | Kaufling   |  7900.00 |
+|         123 | Vollman    |  6500.00 |
+|         145 | Russell    | 14000.00 |
+|         146 | Partners   | 13500.00 |
+|         147 | Errazuriz  | 12000.00 |
+|         148 | Cambrault  | 11000.00 |
+|         149 | Zlotkey    | 10500.00 |
+|         150 | Tucker     | 10000.00 |
+|         151 | Bernstein  |  9500.00 |
+|         152 | Hall       |  9000.00 |
+|         153 | Olsen      |  8000.00 |
+|         154 | Cambrault  |  7500.00 |
+|         155 | Tuvault    |  7000.00 |
+|         156 | King       | 10000.00 |
+|         157 | Sully      |  9500.00 |
+|         158 | McEwen     |  9000.00 |
+|         159 | Smith      |  8000.00 |
+|         160 | Doran      |  7500.00 |
+|         161 | Sewall     |  7000.00 |
+|         162 | Vishney    | 10500.00 |
+|         163 | Greene     |  9500.00 |
+|         164 | Marvins    |  7200.00 |
+|         165 | Lee        |  6800.00 |
+|         168 | Ozer       | 11500.00 |
+|         169 | Bloom      | 10000.00 |
+|         170 | Fox        |  9600.00 |
+|         171 | Smith      |  7400.00 |
+|         172 | Bates      |  7300.00 |
+|         174 | Abel       | 11000.00 |
+|         175 | Hutton     |  8800.00 |
+|         176 | Taylor     |  8600.00 |
+|         177 | Livingston |  8400.00 |
++-------------+------------+----------+
+
+
+58.  Display the names of all employees whose job title is the same as anyone in the sales dept. 
+mysql>  select first_name from employees where job_id in (select job_id  from employees , departments where departments.department_id = employees.department_id and
+    -> department_name = "sales");
++-------------+
+| first_name  |
++-------------+
+| John        |
+| Karen       |
+| Alberto     |
+| Gerald      |
+| Eleni       |
+| Peter       |
+| David       |
+| Peter       |
+| Christopher |
+| Nanette     |
+| Oliver      |
+| Janette     |
+| Patrick     |
+| Allan       |
+| Lindsey     |
+| Louise      |
+| Sarath      |
+| Clara       |
+| Danielle    |
+| Mattea      |
+| David       |
+| Sundar      |
+| Amit        |
+| Lisa        |
+| Harrison    |
+| Tayler      |
+| William     |
+| Elizabeth   |
+| Sundita     |
+| Ellen       |
+| Alyssa      |
+| Jonathon    |
+| Jack        |
+| Kimberely   |
+| Charles     |
++-------------+
+
+
+59. Write a compound query to produce a list of employees showing raise percentages, employee IDs, and salaries. Employees in department 10 and 30 are given a 5% raise, 
+employees in department 2 are given a 10% raise, employees in departments 40 and 50 are given a 15% raise, and employees in department 60 are not given a raise.
+mysql> select employee_id , salary, salary*1.05 Revised_salary , "5% Raise"   Raise_Percentage from employees where department_id in (10,30) union
+    -> select employee_id , salary, salary*1.20 Revised_salary , "20% Raise"   Raise_Percentage from employees where department_id in (20) union
+    -> select employee_id , salary, salary*1.15 Revised_salary , "15% Raise"   Raise_Percentage from employees where department_id in (50) union
+    -> select employee_id , salary, salary*1 Revised_salary , "0% Raise"   Raise_Percentage from employees where department_id in (60) ;
++-------------+----------+----------------+------------------+
+| employee_id | salary   | Revised_salary | Raise_Percentage |
++-------------+----------+----------------+------------------+
+|         200 |  4400.00 |      4620.0000 | 5% Raise         |
+|         114 | 11000.00 |     11550.0000 | 5% Raise         |
+|         115 |  3100.00 |      3255.0000 | 5% Raise         |
+|         116 |  2900.00 |      3045.0000 | 5% Raise         |
+|         117 |  2800.00 |      2940.0000 | 5% Raise         |
+|         118 |  2600.00 |      2730.0000 | 5% Raise         |
+|         119 |  2500.00 |      2625.0000 | 5% Raise         |
+|         201 | 13000.00 |     15600.0000 | 20% Raise        |
+|         202 |  6000.00 |      7200.0000 | 20% Raise        |
+|         120 |  8000.00 |      9200.0000 | 15% Raise        |
+|         121 |  8200.00 |      9430.0000 | 15% Raise        |
+|         122 |  7900.00 |      9085.0000 | 15% Raise        |
+|         123 |  6500.00 |      7475.0000 | 15% Raise        |
+|         124 |  5800.00 |      6670.0000 | 15% Raise        |
+|         125 |  3200.00 |      3680.0000 | 15% Raise        |
+|         126 |  2700.00 |      3105.0000 | 15% Raise        |
+|         127 |  2400.00 |      2760.0000 | 15% Raise        |
+|         128 |  2200.00 |      2530.0000 | 15% Raise        |
+|         129 |  3300.00 |      3795.0000 | 15% Raise        |
+|         130 |  2800.00 |      3220.0000 | 15% Raise        |
+|         131 |  2500.00 |      2875.0000 | 15% Raise        |
+|         132 |  2100.00 |      2415.0000 | 15% Raise        |
+|         133 |  3300.00 |      3795.0000 | 15% Raise        |
+|         134 |  2900.00 |      3335.0000 | 15% Raise        |
+|         135 |  2400.00 |      2760.0000 | 15% Raise        |
+|         136 |  2200.00 |      2530.0000 | 15% Raise        |
+|         137 |  3600.00 |      4140.0000 | 15% Raise        |
+|         138 |  3200.00 |      3680.0000 | 15% Raise        |
+|         139 |  2700.00 |      3105.0000 | 15% Raise        |
+|         140 |  2500.00 |      2875.0000 | 15% Raise        |
+|         141 |  3500.00 |      4025.0000 | 15% Raise        |
+|         142 |  3100.00 |      3565.0000 | 15% Raise        |
+|         143 |  2600.00 |      2990.0000 | 15% Raise        |
+|         144 |  2500.00 |      2875.0000 | 15% Raise        |
+|         180 |  3200.00 |      3680.0000 | 15% Raise        |
+|         181 |  3100.00 |      3565.0000 | 15% Raise        |
+|         182 |  2500.00 |      2875.0000 | 15% Raise        |
+|         183 |  2800.00 |      3220.0000 | 15% Raise        |
+|         184 |  4200.00 |      4830.0000 | 15% Raise        |
+|         185 |  4100.00 |      4715.0000 | 15% Raise        |
+|         186 |  3400.00 |      3910.0000 | 15% Raise        |
+|         187 |  3000.00 |      3450.0000 | 15% Raise        |
+|         188 |  3800.00 |      4370.0000 | 15% Raise        |
+|         189 |  3600.00 |      4140.0000 | 15% Raise        |
+|         190 |  2900.00 |      3335.0000 | 15% Raise        |
+|         191 |  2500.00 |      2875.0000 | 15% Raise        |
+|         192 |  4000.00 |      4600.0000 | 15% Raise        |
+|         193 |  3900.00 |      4485.0000 | 15% Raise        |
+|         194 |  3200.00 |      3680.0000 | 15% Raise        |
+|         195 |  2800.00 |      3220.0000 | 15% Raise        |
+|         196 |  3100.00 |      3565.0000 | 15% Raise        |
+|         197 |  3000.00 |      3450.0000 | 15% Raise        |
+|         198 |  2600.00 |      2990.0000 | 15% Raise        |
+|         199 |  2600.00 |      2990.0000 | 15% Raise        |
+|         103 |  9000.00 |      9000.0000 | 0% Raise         |
+|         104 |  6000.00 |      6000.0000 | 0% Raise         |
+|         105 |  4800.00 |      4800.0000 | 0% Raise         |
+|         106 |  4800.00 |      4800.0000 | 0% Raise         |
+|         107 |  4200.00 |      4200.0000 | 0% Raise         |
++-------------+----------+----------------+------------------+
+
+
+60.Write a query to display the top three earners in the EMPLOYEES table. Display their last names and salaries.
+mysql> select last_name , salary from employees order by salary desc limit 3;
++-----------+----------+
+| last_name | salary   |
++-----------+----------+
+| King      | 24000.00 |
+| Kochhar   | 17000.00 |
+| De Haan   | 17000.00 |
++-----------+----------+
+
+
+61.  Display the names of all employees with their salary and commission earned. Employees with a null commission should have O in the commission column.
+mysql> select concat_ws(" ",first_name,last_name) as Employee_Name , salary , case when commission_pct is null then 0 else commission_pct end as commission from employees;
++-------------------+----------+------------+
+| Employee_Name     | salary   | Commission |
++-------------------+----------+------------+
+| Steven King       | 24000.00 | 0          |
+| Neena Kochhar     | 17000.00 | 0          |
+| Lex De Haan       | 17000.00 | 0          |
+| Alexander Hunold  |  9000.00 | 0          |
+| Bruce Ernst       |  6000.00 | 0          |
+| David Austin      |  4800.00 | 0          |
+| Valli Pataballa   |  4800.00 | 0          |
+| Diana Lorentz     |  4200.00 | 0          |
+| Nancy Greenberg   | 12000.00 | 0          |
+| Daniel Faviet     |  9000.00 | 0          |
+| John Chen         |  8200.00 | 0          |
+| Ismael Sciarra    |  7700.00 | 0          |
+| Jose Manuel Urman |  7800.00 | 0          |
+| Luis Popp         |  6900.00 | 0          |
+| Den Raphaely      | 11000.00 | 0          |
+| Alexander Khoo    |  3100.00 | 0          |
+| Shelli Baida      |  2900.00 | 0          |
+| Sigal Tobias      |  2800.00 | 0          |
+| Guy Himuro        |  2600.00 | 0          |
+| Karen Colmenares  |  2500.00 | 0          |
+| Matthew Weiss     |  8000.00 | 0          |
+| Adam Fripp        |  8200.00 | 0          |
+| Payam Kaufling    |  7900.00 | 0          |
+| Shanta Vollman    |  6500.00 | 0          |
+| Kevin Mourgos     |  5800.00 | 0          |
+| Julia Nayer       |  3200.00 | 0          |
+| Irene Mikkilineni |  2700.00 | 0          |
+| James Landry      |  2400.00 | 0          |
+| Steven Markle     |  2200.00 | 0          |
+| Laura Bissot      |  3300.00 | 0          |
+| Mozhe Atkinson    |  2800.00 | 0          |
+| James Marlow      |  2500.00 | 0          |
+| TJ Olson          |  2100.00 | 0          |
+| Jason Mallin      |  3300.00 | 0          |
+| Michael Rogers    |  2900.00 | 0          |
+| Ki Gee            |  2400.00 | 0          |
+| Hazel Philtanker  |  2200.00 | 0          |
+| Renske Ladwig     |  3600.00 | 0          |
+| Stephen Stiles    |  3200.00 | 0          |
+| John Seo          |  2700.00 | 0          |
+| Joshua Patel      |  2500.00 | 0          |
+| Trenna Rajs       |  3500.00 | 0          |
+| Curtis Davies     |  3100.00 | 0          |
+| Randall Matos     |  2600.00 | 0          |
+| Peter Vargas      |  2500.00 | 0          |
+| John Russell      | 14000.00 | 0.40       |
+| Karen Partners    | 13500.00 | 0.30       |
+| Alberto Errazuriz | 12000.00 | 0.30       |
+| Gerald Cambrault  | 11000.00 | 0.30       |
+| Eleni Zlotkey     | 10500.00 | 0.20       |
+| Peter Tucker      | 10000.00 | 0.30       |
+| David Bernstein   |  9500.00 | 0.25       |
+| Peter Hall        |  9000.00 | 0.25       |
+| Christopher Olsen |  8000.00 | 0.20       |
+| Nanette Cambrault |  7500.00 | 0.20       |
+| Oliver Tuvault    |  7000.00 | 0.15       |
+| Janette King      | 10000.00 | 0.35       |
+| Patrick Sully     |  9500.00 | 0.35       |
+| Allan McEwen      |  9000.00 | 0.35       |
+| Lindsey Smith     |  8000.00 | 0.30       |
+| Louise Doran      |  7500.00 | 0.30       |
+| Sarath Sewall     |  7000.00 | 0.25       |
+| Clara Vishney     | 10500.00 | 0.25       |
+| Danielle Greene   |  9500.00 | 0.15       |
+| Mattea Marvins    |  7200.00 | 0.10       |
+| David Lee         |  6800.00 | 0.10       |
+| Sundar Ande       |  6400.00 | 0.10       |
+| Amit Banda        |  6200.00 | 0.10       |
+| Lisa Ozer         | 11500.00 | 0.25       |
+| Harrison Bloom    | 10000.00 | 0.20       |
+| Tayler Fox        |  9600.00 | 0.20       |
+| William Smith     |  7400.00 | 0.15       |
+| Elizabeth Bates   |  7300.00 | 0.15       |
+| Sundita Kumar     |  6100.00 | 0.10       |
+| Ellen Abel        | 11000.00 | 0.30       |
+| Alyssa Hutton     |  8800.00 | 0.25       |
+| Jonathon Taylor   |  8600.00 | 0.20       |
+| Jack Livingston   |  8400.00 | 0.20       |
+| Kimberely Grant   |  7000.00 | 0.15       |
+| Charles Johnson   |  6200.00 | 0.10       |
+| Winston Taylor    |  3200.00 | 0          |
+| Jean Fleaur       |  3100.00 | 0          |
+| Martha Sullivan   |  2500.00 | 0          |
+| Girard Geoni      |  2800.00 | 0          |
+| Nandita Sarchand  |  4200.00 | 0          |
+| Alexis Bull       |  4100.00 | 0          |
+| Julia Dellinger   |  3400.00 | 0          |
+| Anthony Cabrio    |  3000.00 | 0          |
+| Kelly Chung       |  3800.00 | 0          |
+| Jennifer Dilly    |  3600.00 | 0          |
+| Timothy Gates     |  2900.00 | 0          |
+| Randall Perkins   |  2500.00 | 0          |
+| Sarah Bell        |  4000.00 | 0          |
+| Britney Everett   |  3900.00 | 0          |
+| Samuel McCain     |  3200.00 | 0          |
+| Vance Jones       |  2800.00 | 0          |
+| Alana Walsh       |  3100.00 | 0          |
+| Kevin Feeney      |  3000.00 | 0          |
+| Donald OConnell   |  2600.00 | 0          |
+| Douglas Grant     |  2600.00 | 0          |
+| Jennifer Whalen   |  4400.00 | 0          |
+| Michael Hartstein | 13000.00 | 0          |
+| Pat Fay           |  6000.00 | 0          |
+| Susan Mavris      |  6500.00 | 0          |
+| Hermann Baer      | 10000.00 | 0          |
+| Shelley Higgins   | 12000.00 | 0          |
+| William Gietz     |  8300.00 | 0          |
++-------------------+----------+------------+
+
+
+62. Display the Managers (name) with top three salaries along with their salaries and department information.
+mysql> select concat_ws(" ",first_name, last_name) Manager_Name, salary,departments.department_id,department_name from employees,departments where employees.department_id = departments.department_id and  employee_id in (select manager_id from employees )  order by salary desc limit 3;
++---------------+----------+---------------+-----------------+
+| Manager_Name  | salary   | department_id | department_name |
++---------------+----------+---------------+-----------------+
+| Steven King   | 24000.00 |            90 | Executive       |
+| Neena Kochhar | 17000.00 |            90 | Executive       |
+| Lex De Haan   | 17000.00 |            90 | Executive       |
++---------------+----------+---------------+-----------------+
+
+
+
+
+
+
+
+
